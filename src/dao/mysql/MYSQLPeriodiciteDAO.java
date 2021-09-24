@@ -2,45 +2,44 @@ package dao.mysql;
 
 import java.util.ArrayList;
 
-import dao.ClientDAO;
-import modele.Client;
+import dao.PeriodiciteDAO;
+import modele.Periodicite;
 
-public class MYSQLClientDAO implements ClientDAO{
+public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 
 	@Override
-	public Client getById(int id) {
+	public Periodicite getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean create(Client objet) {
+	public boolean create(Periodicite objet) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean update(Client objet) {
+	public boolean update(Periodicite objet) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Client objet) {
+	public boolean delete(Periodicite objet) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public static  ClientDAO getInstance() {
+	@Override
+	public ArrayList<Periodicite> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public ArrayList<Client> findAll() {
+	public static PeriodiciteDAO getInstance() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

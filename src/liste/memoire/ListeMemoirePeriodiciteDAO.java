@@ -3,49 +3,50 @@ package liste.memoire;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.RevueDAO;
-import modele.Client;
-import modele.Revue;
+import dao.PeriodiciteDAO;
+import modele.Periodicite;
 
-public class ListeMemoireRevueDAO implements RevueDAO {
+public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO {
 
-	private static ListeMemoireRevueDAO instance;
+	private static ListeMemoirePeriodiciteDAO instance;
 
-	private List<Revue> donnees;
+	private List<Periodicite> donnees;
 
 
-	public static ListeMemoireRevueDAO getInstance() {
+	public static ListeMemoirePeriodiciteDAO getInstance() {
 
 		if (instance == null) {
-			instance = new ListeMemoireRevueDAO();
+			instance = new ListeMemoirePeriodiciteDAO();
 		}
 
 		return instance;
 	}
 
-	private ListeMemoireRevueDAO() {
+	private ListeMemoirePeriodiciteDAO() {
 
-		this.donnees = new ArrayList<Revue>();
+		this.donnees = new ArrayList<Periodicite>();
 
-		this.donnees.add(new Revue(1, "La Revue", "Qu'est ce qu'un bon produit", 10, "Revue", 1));
-		this.donnees.add(new Revue(1, "La Revue", "Decouvrir l'histoire", 8, "Revue", 1));
+		this.donnees.add(new Periodicite(1, "Mensuel"));
+		this.donnees.add(new Periodicite(2, "Quotidien"));
 	}
 
 
-	public boolean create(Revue objet) {
+	@Override
+	public boolean create(Periodicite objet) {
 
-		objet.setId_revue(3);
+		objet.setId_periodicite(3);
 		// Ne fonctionne que si l'objet métier est bien fait...
 		while (this.donnees.contains(objet)) {
 
-			objet.setId_revue(objet.getId_revue() + 1);
+			objet.setId_periodicite(objet.getId_periodicite() + 1);
 		}
 		boolean ok = this.donnees.add(objet);
 		
 		return ok;
 	}
 
-	public boolean update(Revue objet) {
+	@Override
+	public boolean update(Periodicite objet) {
 		
 		// Ne fonctionne que si l'objet métier est bien fait...
 		int idx = this.donnees.indexOf(objet);
@@ -59,9 +60,10 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 		return true;
 	}
 
-	public boolean delete(Revue objet) {
+	@Override
+	public boolean delete(Periodicite objet) {
 
-		Revue supprime;
+		Periodicite supprime;
 		
 		// Ne fonctionne que si l'objet métier est bien fait...
 		int idx = this.donnees.indexOf(objet);
@@ -75,24 +77,18 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	}
 
 	@Override
-	public Revue getById(int id) {
+	public Periodicite getById(int id) {
 		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new Revue(id, "titre","description", 10 , "visuel", 1));
+		int idx = this.donnees.indexOf(new Periodicite(id, "test"));
 		if (idx == -1) {
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
 		} else {
 			return this.donnees.get(idx);
 		}
-	
-	}
-	
-	
-
-@Override	
-	public ArrayList<Revue> findAll() {
-		return (ArrayList<Revue>) this.donnees;
 	}
 
-	
+	@Override
+	public ArrayList<Periodicite> findAll() {
+		return (ArrayList<Periodicite>) this.donnees;
 	}
-	
+}

@@ -40,10 +40,11 @@ public class MYSQLAbonnementDAO implements AbonnementDAO{
 	}
 
 	@Override
-	public ArrayList<Client> findAll() {
+	public ArrayList<Abonnement> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	
 

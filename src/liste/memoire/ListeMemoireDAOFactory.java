@@ -3,6 +3,7 @@ package liste.memoire;
 import dao.AbonnementDAO;
 import dao.ClientDAO;
 import dao.DAOFactory;
+import dao.PeriodiciteDAO;
 import dao.RevueDAO;
 
 public class ListeMemoireDAOFactory extends DAOFactory {
@@ -19,6 +20,11 @@ public ClientDAO getClientDAO() {
 }
 @Override
 public RevueDAO getRevueDAO() {
+	// TODO Auto-generated method stub
+	return null;
+}
+@Override
+public PeriodiciteDAO getPeriodiciteDAO() {
 	// TODO Auto-generated method stub
 	return null;
 }

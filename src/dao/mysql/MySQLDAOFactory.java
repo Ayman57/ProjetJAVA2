@@ -3,6 +3,7 @@ package dao.mysql;
 import dao.AbonnementDAO;
 import dao.ClientDAO;
 import dao.DAOFactory;
+import dao.PeriodiciteDAO;
 import dao.RevueDAO;
 import liste.memoire.ListeMemoireDAOFactory;
 import liste.memoire.ListeMemoireClientDAO;
@@ -25,6 +26,12 @@ public class MySQLDAOFactory extends DAOFactory {
 	public RevueDAO getRevueDAO() {
 		// TODO Auto-generated method stub
 		return MYSQLRevueDAO.getInstance();
+	}
+
+	@Override
+	public PeriodiciteDAO getPeriodiciteDAO() {
+		// TODO Auto-generated method stub
+		return MYSQLPeriodiciteDAO.getInstance();
 	}
 
 }

@@ -19,5 +19,6 @@ return daoF;
 public abstract AbonnementDAO getAbonnementDAO();
 public abstract ClientDAO getClientDAO();
 public abstract RevueDAO getRevueDAO();
+public abstract PeriodiciteDAO getPeriodiciteDAO();
 
 }

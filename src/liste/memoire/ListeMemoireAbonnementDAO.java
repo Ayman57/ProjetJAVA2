@@ -3,49 +3,50 @@ package liste.memoire;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.RevueDAO;
-import modele.Client;
-import modele.Revue;
+import dao.AbonnementDAO;
+import modele.Abonnement;
 
-public class ListeMemoireRevueDAO implements RevueDAO {
+public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 
-	private static ListeMemoireRevueDAO instance;
+	private static ListeMemoireAbonnementDAO instance;
 
-	private List<Revue> donnees;
+	private List<Abonnement> donnees;
 
 
-	public static ListeMemoireRevueDAO getInstance() {
+	public static ListeMemoireAbonnementDAO getInstance() {
 
 		if (instance == null) {
-			instance = new ListeMemoireRevueDAO();
+			instance = new ListeMemoireAbonnementDAO();
 		}
 
 		return instance;
 	}
 
-	private ListeMemoireRevueDAO() {
+	private ListeMemoireAbonnementDAO() {
 
-		this.donnees = new ArrayList<Revue>();
+		this.donnees = new ArrayList<Abonnement>();
 
-		this.donnees.add(new Revue(1, "La Revue", "Qu'est ce qu'un bon produit", 10, "Revue", 1));
-		this.donnees.add(new Revue(1, "La Revue", "Decouvrir l'histoire", 8, "Revue", 1));
+		this.donnees.add(new Abonnement(1, null, null,1,1));
+		this.donnees.add(new Abonnement(2, null, null,2,2));
 	}
 
 
-	public boolean create(Revue objet) {
+	@Override
+	public boolean create(Abonnement objet) {
 
-		objet.setId_revue(3);
+		objet.setId_abonnement(3);
 		// Ne fonctionne que si l'objet métier est bien fait...
 		while (this.donnees.contains(objet)) {
 
-			objet.setId_revue(objet.getId_revue() + 1);
+			objet.setId_abonnement(objet.getId_abonnement() + 1);
 		}
 		boolean ok = this.donnees.add(objet);
 		
 		return ok;
 	}
 
-	public boolean update(Revue objet) {
+	@Override
+	public boolean update(Abonnement objet) {
 		
 		// Ne fonctionne que si l'objet métier est bien fait...
 		int idx = this.donnees.indexOf(objet);
@@ -59,9 +60,10 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 		return true;
 	}
 
-	public boolean delete(Revue objet) {
+	@Override
+	public boolean delete(Abonnement objet) {
 
-		Revue supprime;
+		Abonnement supprime;
 		
 		// Ne fonctionne que si l'objet métier est bien fait...
 		int idx = this.donnees.indexOf(objet);
@@ -75,24 +77,18 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	}
 
 	@Override
-	public Revue getById(int id) {
+	public Abonnement getById(int id) {
 		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new Revue(id, "titre","description", 10 , "visuel", 1));
+		int idx = this.donnees.indexOf(new Abonnement(id, null, null,1,1));
 		if (idx == -1) {
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
 		} else {
 			return this.donnees.get(idx);
 		}
-	
-	}
-	
-	
-
-@Override	
-	public ArrayList<Revue> findAll() {
-		return (ArrayList<Revue>) this.donnees;
 	}
 
-	
+	@Override
+	public ArrayList<Abonnement> findAll() {
+		return (ArrayList<Abonnement>) this.donnees;
 	}
-	
+}
