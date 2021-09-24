@@ -25,6 +25,16 @@ public class Periodicite {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+
+	public void setId(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }

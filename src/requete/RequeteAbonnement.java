@@ -1,6 +1,7 @@
 package requete;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,13 +9,14 @@ import java.sql.Statement;
 
 import connexion.Connexion;
 
-public class RequeteClient {
+public class RequeteAbonnement {
+
 	
-	  public void supprimer(int idClient) {
+	  public void supprimer(int idAbonnement) {
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
-			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Client where id_client=?");
-					  requete.setInt(1, idClient);
+			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Abonnement where id_abonnement=?");
+					  requete.setInt(1, idAbonnement);
 					  int nbLignes = requete.executeUpdate();
 					
 		
@@ -23,18 +25,15 @@ public class RequeteClient {
 			  } 
 			}   
 	  
-	  public void ajouter( String nom, String prenom, String no_rue, String voie, String code_postal, String ville, String pays) {
+	  public void ajouter( Date date_deb, Date date_fin, int id_client, int id_revue) {
 		  try {
 		   Connection laConnexion = Connexion.creeConnexion();
 		Statement requete = laConnexion.createStatement();
-		PreparedStatement req =	laConnexion.prepareStatement(" INSERT INTO Client (nom, prenom, no_rue, voie, code_postal, ville, pays ) VALUES (?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-		req.setString(1, nom);
-		req.setString(2, prenom);
-		req.setString(3, no_rue);
-		req.setString(4, voie);
-		req.setString(5, code_postal);
-		req.setString(6, ville);
-		req.setString(7, pays);
+		PreparedStatement req =	laConnexion.prepareStatement(" INSERT INTO Abonnement (date_debut, date_fin, id_client, id_revue ) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+		req.setDate(1, date_deb);
+		req.setDate(2, date_fin);
+		req.setInt(3, id_client);
+		req.setInt(4, id_revue);
 		int nbLignes = req.executeUpdate();
 		ResultSet res = req.getGeneratedKeys();
 		if (res.next()) {
@@ -48,6 +47,4 @@ public class RequeteClient {
 			  } 
 			}   
 
-	  
-	 
 }

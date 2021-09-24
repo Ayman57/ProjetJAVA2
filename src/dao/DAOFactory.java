@@ -1,6 +1,7 @@
 package dao;
 
-/*import dao.mysql.MySQLDAOFactory;
+import dao.mysql.MySQLDAOFactory;
+import liste.memoire.ListeMemoireDAOFactory;
 
  public abstract class DAOFactory {
 public static DAOFactory getDAOFactory(Persistance cible) {
@@ -9,13 +10,14 @@ switch (cible) {
 case MYSQL:
 daoF = new MySQLDAOFactory();
 break;
-case ListeMemoire:
+case LISTE_MEMOIRE:
 daoF = new ListeMemoireDAOFactory();
 break;
 }
 return daoF;
 }
-public abstract EtudiantDAO getEtudiantDAO();
-public abstract PromoDAO getPromoDAO();
+public abstract AbonnementDAO getAbonnementDAO();
+public abstract ClientDAO getClientDAO();
+public abstract RevueDAO getRevueDAO();
+
 }
-*/
