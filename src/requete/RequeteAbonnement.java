@@ -49,7 +49,7 @@ public class RequeteAbonnement {
 			  } 
 			}  
 	  
-	  public boolean modifier(Abonnement objet) {
+	  public void modifier(Abonnement objet) {
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
@@ -69,7 +69,6 @@ public class RequeteAbonnement {
 				System.out.println("Pb select" + sqle.getMessage());
 				
 				  } 
-		  return true;
 	  }
 	  
 
