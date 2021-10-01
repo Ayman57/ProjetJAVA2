@@ -4,11 +4,11 @@ public class Revue {
  private int id_revue;
  private String titre;
  private String description;
- private float tarif_numero;
+ private double tarif_numero;
  private String visuel;
  private int id_periodicite;
  
-public Revue(int id_revue, String titre, String description, float tarif_numero, String visuel, int id_periodicite) {
+public Revue(int id_revue, String titre, String description, double tarif_numero, String visuel, int id_periodicite) {
 	this.id_revue = id_revue;
 	this.titre = titre;
 	this.description = description;
@@ -45,7 +45,7 @@ public double getTarif_numero() {
 	return tarif_numero;
 }
 
-public void setTarif_numero(float tarif_numero) {
+public void setTarif_numero(double tarif_numero) {
 	this.tarif_numero = tarif_numero;
 }
 

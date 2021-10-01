@@ -48,11 +48,11 @@ public class RequeteRevue {
 			  } 
 			}   
 	 
-	  public boolean modifier(Revue objet) {
+	  public void modifier(Revue objet) {
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
-			PreparedStatement req =	laConnexion.prepareStatement(" update Revue set  (titre, description, tarif_numero, visuel, id_periodicite ) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement req =	laConnexion.prepareStatement(" update Revue set  titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? ", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getTitre());
 			req.setString(2, objet.getDescription());
 			req.setDouble(3, objet.getTarif_numero());
@@ -69,7 +69,6 @@ public class RequeteRevue {
 				System.out.println("Pb select" + sqle.getMessage());
 				
 				  } 
-		  return true;
 	  }
 	  
 }

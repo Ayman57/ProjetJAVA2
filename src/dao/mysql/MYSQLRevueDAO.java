@@ -1,44 +1,119 @@
 package dao.mysql;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.mysql.cj.xdevapi.Client;
 
+import connexion.Connexion;
 import dao.RevueDAO;
+import modele.Periodicite;
 import modele.Revue;
 
 public class MYSQLRevueDAO implements RevueDAO{
+	private static MYSQLRevueDAO instance;
 
 	
-	
+	@Override
+	public Revue getById(int id) throws Exception {
+		Revue  revue= null;	
+		 try {
+			   Connection laConnexion = Connexion.creeConnexion();
+			Statement requete = laConnexion.createStatement();
+			PreparedStatement req =	laConnexion.prepareStatement(" select * from Revue where id_revue = ?");
+			req.setInt(1, id);
+			int nbLignes = req.executeUpdate();
+			ResultSet res = req.executeQuery();
+
+			if (res.next()) {
+				revue = new Revue(res.getInt(1),res.getString(2),res.getString(3), res.getDouble(4),res.getString(5), res.getInt(6));
+				}
+			  }catch (SQLException sqle) {
+				System.out.println("Pb select" + sqle.getMessage());
+}
+
+		return revue;
+	}
 
 	public static RevueDAO getInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		if (instance == null) {
+			instance = new MYSQLRevueDAO();
+		}
+		return instance;
 	}
 
-	@Override
-	public Revue getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	
 	@Override
 	public boolean create(Revue objet) {
-		// TODO Auto-generated method stub
-		return false;
+		int nbLignes=0;
+		  try {
+			   Connection laConnexion = Connexion.creeConnexion();
+			Statement requete = laConnexion.createStatement();
+			PreparedStatement req =	laConnexion.prepareStatement(" INSERT INTO Revue (titre, description, tarif_numero, visuel, id_periodicite) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			req.setString(1, objet.getTitre());
+			req.setString(2, objet.getDescription());
+			req.setDouble(3, objet.getTarif_numero());
+			req.setString(4, objet.getVisuel());
+			req.setInt(5, objet.getId_periodicite());
+			 nbLignes = req.executeUpdate();
+			ResultSet res = req.getGeneratedKeys();
+			if (res.next()) {
+			int cle = res.getInt(1); 
+			}
+			 
+
+			
+			  }catch (SQLException sqle) {
+				System.out.println("Pb select" + sqle.getMessage());
+				  } 
+		  return nbLignes == 1;
 	}
 
 	@Override
 	public boolean update(Revue objet) {
-		// TODO Auto-generated method stub
-		return false;
+		int nbLignes=0;
+		 try {
+			   Connection laConnexion = Connexion.creeConnexion();
+			Statement requete = laConnexion.createStatement();
+			PreparedStatement req =	laConnexion.prepareStatement(" update Revue set  titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? ", Statement.RETURN_GENERATED_KEYS);
+			req.setString(1, objet.getTitre());
+			req.setString(2, objet.getDescription());
+			req.setDouble(3, objet.getTarif_numero());
+			req.setString(4, objet.getVisuel());
+			req.setInt(5, objet.getId_periodicite());
+			 nbLignes = req.executeUpdate();
+			
+			ResultSet res = req.getGeneratedKeys();
+			if (res.next()) {
+			int cle = res.getInt(1); 
+			}
+			
+			  }catch (SQLException sqle) {
+				System.out.println("Pb select" + sqle.getMessage());
+				
+				  } 
+		return nbLignes==1;
 	}
 
 	@Override
 	public boolean delete(Revue objet) {
-		// TODO Auto-generated method stub
-		return false;
+		int nbLignes = 0;
+		 try {
+			   Connection laConnexion = Connexion.creeConnexion();
+			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Revue where id_revue=?");
+					  requete.setInt(1, objet.getId_revue());
+					   nbLignes = requete.executeUpdate();
+					
+		
+		  }catch (SQLException sqle) {
+			System.out.println("Pb select" + sqle.getMessage());
+			  } 
+		return nbLignes == 1;
 	}
 
 	@Override
@@ -46,6 +121,10 @@ public class MYSQLRevueDAO implements RevueDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+	
 
 
 
