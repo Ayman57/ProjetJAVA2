@@ -69,7 +69,7 @@ public class MYSQLClientDAO implements ClientDAO{
 		 try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
-			PreparedStatement req =	laConnexion.prepareStatement(" update Client set  (nom, prenom, no_rue, voie, code_postal, ville, pays ) VALUES (?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement req =	laConnexion.prepareStatement(" update Client set  nom=?, prenom=?, no_rue=?, voie=?, code_postal=?, ville=?, pays=?", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getNom());
 			req.setString(2, objet.getPrenom());
 			req.setString(3, objet.getNo_rue());

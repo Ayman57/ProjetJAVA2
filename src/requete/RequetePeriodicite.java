@@ -29,11 +29,11 @@ public class RequetePeriodicite  {
  
 
 
-	  public boolean modifier(Periodicite objet) {
+	  public void modifier(Periodicite objet) {
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
-			PreparedStatement req =	laConnexion.prepareStatement(" update Periodicite set  (libelle ) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement req =	laConnexion.prepareStatement(" update Periodicite set  libelle=?", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getLibelle());
 
 			int nbLignes = req.executeUpdate();
@@ -47,7 +47,6 @@ public class RequetePeriodicite  {
 				System.out.println("Pb select" + sqle.getMessage());
 				
 				  } 
-		  return true;
 	  }
 	  
 	  public void ajouter( String libelle) {

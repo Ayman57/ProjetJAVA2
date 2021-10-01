@@ -45,9 +45,7 @@ public class MYSQLAbonnementDAO implements AbonnementDAO {
 		try {
 			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
-			PreparedStatement req = laConnexion.prepareStatement(
-					" update Abonnement set  (date_debut, date_fin, id_client, id_revue ) VALUES (?,?,?,?)",
-					Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement req = laConnexion.prepareStatement(" update Abonnement set  date_debut=?, date_fin=?, id_client=?, id_revue=?",Statement.RETURN_GENERATED_KEYS);
 			req.setDate(1, objet.getDate_debut());
 			req.setDate(2, objet.getDate_fin());
 			req.setInt(3, objet.getId_client());
