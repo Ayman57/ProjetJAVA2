@@ -49,7 +49,7 @@ public class RequeteClient {
 			  } 
 			}   
 	  
-	  public boolean modifier(Client objet) {
+	  public void modifier(Client objet) {
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
@@ -72,7 +72,6 @@ public class RequeteClient {
 				System.out.println("Pb select" + sqle.getMessage());
 				
 				  } 
-		  return true;
 	  }
 	  
 	 
