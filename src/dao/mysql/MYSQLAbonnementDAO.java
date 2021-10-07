@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import connexion.Connexion;
 import dao.AbonnementDAO;
 import modele.Abonnement;
+import modele.Client;
 
 public class MYSQLAbonnementDAO implements AbonnementDAO {
 	private static MYSQLAbonnementDAO instance;
@@ -88,8 +89,21 @@ public class MYSQLAbonnementDAO implements AbonnementDAO {
 
 	@Override
 	public ArrayList<Abonnement> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+ArrayList<Abonnement> listeabo = new ArrayList<Abonnement>();
+		
+		
+		
+		try {
+			Connection laConnexion = Connexion.creeConnexion(); 
+			PreparedStatement req = laConnexion.prepareStatement("select (*) from Client");
+			ResultSet res = req.executeQuery();
+			while (res.next()){
+				listeabo.add(new Abonnement(res.getInt("id_abonnement"),res.getDate("date_debut"),res.getDate("date_fin"),res.getInt("id_client"),res.getInt("id_revue")));
+			}
+		}catch (SQLException sqle) {
+			System.out.println("Pb dans select" + sqle.getMessage());		}
+		
+		return listeabo ;		
 	}
 
 	@Override

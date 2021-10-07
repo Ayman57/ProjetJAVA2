@@ -1,4 +1,4 @@
-package test;
+package main;
 
 import connexion.Connexion;
 import modele.Client;
@@ -11,7 +11,7 @@ import java.sql.Date;
 
 
 import java.sql.Connection;
-public class Test {
+public class Main {
 
 	public static void main(String[] args) {
 

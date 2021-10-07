@@ -98,8 +98,21 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 
 	@Override
 	public ArrayList<Periodicite> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+ArrayList<Periodicite> listeper = new ArrayList<Periodicite>();
+		
+		
+		
+		try {
+			Connection laConnexion = Connexion.creeConnexion(); 
+			PreparedStatement req = laConnexion.prepareStatement("select (*) from Client");
+			ResultSet res = req.executeQuery();
+			while (res.next()){
+				listeper.add(new Periodicite(res.getInt("id_periodicite"),res.getString("libelle")));
+			}
+		}catch (SQLException sqle) {
+			System.out.println("Pb dans select" + sqle.getMessage());		}
+		
+		return listeper ;
 	}
 
 	public static PeriodiciteDAO getInstance() {

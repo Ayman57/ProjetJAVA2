@@ -118,8 +118,21 @@ public class MYSQLRevueDAO implements RevueDAO{
 
 	@Override
 	public ArrayList<Revue> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+ArrayList<Revue> listerev = new ArrayList<Revue>();
+		
+		
+		
+		try {
+			Connection laConnexion = Connexion.creeConnexion(); 
+			PreparedStatement req = laConnexion.prepareStatement("select (*) from Client");
+			ResultSet res = req.executeQuery();
+			while (res.next()){
+				listerev.add(new Revue(res.getInt("id_revue"),res.getString("titre"),res.getString("description"),res.getDouble("tarif_numero"),res.getString("visuel"),res.getInt("id_periodicite")));
+			}
+		}catch (SQLException sqle) {
+			System.out.println("Pb dans select" + sqle.getMessage());		}
+		
+		return listerev ;
 	}
 
 

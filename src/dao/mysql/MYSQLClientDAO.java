@@ -116,8 +116,21 @@ public class MYSQLClientDAO implements ClientDAO{
 
 	@Override
 	public ArrayList<Client> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+ArrayList<Client> listecl = new ArrayList<Client>();
+		
+		
+		
+		try {
+			Connection laConnexion = Connexion.creeConnexion(); 
+			PreparedStatement req = laConnexion.prepareStatement("select (*) from Client");
+			ResultSet res = req.executeQuery();
+			while (res.next()){
+				listecl.add(new Client(res.getInt("id_client"),res.getString("nom"),res.getString("prenom"),res.getString("no_rue"),res.getString("voie"),res.getString("code_postale"),res.getString("ville"),res.getString("pays")));
+			}
+		}catch (SQLException sqle) {
+			System.out.println("Pb dans select" + sqle.getMessage());		}
+		
+		return listecl ;
 	}
 
 
