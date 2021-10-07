@@ -28,7 +28,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 		this.donnees = new ArrayList<Revue>();
 
 		this.donnees.add(new Revue(1, "La Revue", "Qu'est ce qu'un bon produit", 10, "Revue", 1));
-		this.donnees.add(new Revue(1, "La Revue", "Decouvrir l'histoire", 8, "Revue", 1));
+		this.donnees.add(new Revue(2, "La Revue", "Decouvrir l'histoire", 8, "Revue", 2));
 	}
 
 
