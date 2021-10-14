@@ -11,7 +11,7 @@ public class NormalisationPostal {
 		}
 		else if (nbCodePost>5) {
 			for (int i=0;i<2;i++) {
-				codPost.substring(1);
+			codPost = 	codPost.substring(1);
 			}
 			return codPost;
 		}

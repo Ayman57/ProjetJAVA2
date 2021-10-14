@@ -16,7 +16,12 @@ public class NormCodePostTest {
 	
 	@Test
 	public void testNormalisationPostalAutreChiifre() {
-		assertEquals("L-7354", NormalisationPostal.modPostal("7354"));
+		assertEquals("7354", NormalisationPostal.modPostal("L-7354"));
+	}
+	
+	@Test
+	public void testNormalisationPostal5Chiifre() {
+		assertEquals("57354", NormalisationPostal.modPostal("57354"));
 	}
 	
 }
