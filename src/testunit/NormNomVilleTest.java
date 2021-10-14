@@ -8,8 +8,13 @@ import normalisation.NormalisationNomVille;
 
 public class NormNomVilleTest {
 	@Test
-	public void testNormalisationNomVilleMajuscule() {
-	//	assertEquals("Metz-lès-pont", NormalisationNomVille.modVille("metz-lès pont"));
+	public void tiret() {
+		assertEquals("Montigny-lès-Metz", NormalisationNomVille.modVille("Montigny les Metz"));
+	}
+	
+	@Test
+	public void accent() {
+		assertEquals("Montigny-lès-Metz", NormalisationNomVille.modVille("Montigny-lès Metz"));
 	}
 	
 

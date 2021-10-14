@@ -2,27 +2,44 @@ package normalisation;
 
 public class NormalisationNomVille {
 
-	/*	public static String modVille(String ville) {
-/*
-        ville=ville.replaceAll("-lès ","-lès-");        ville=ville.replaceAll(" le ","-le-");
-        ville=ville.replaceAll(" lès-", "-lès-");    ville=ville.replaceAll("-le ", "-le-");
-        ville=ville.replaceAll(" lès ","-lès-");    ville=ville.replaceAll(" le-", "le");
+		public static String modVille(String Nomville) {
 
-        ville=ville.replaceAll("-les ","-lès-");        ville=ville.replaceAll(" à ","-à-");
-        ville=ville.replaceAll(" les-", "-lès-");    ville=ville.replaceAll("-à ","-à-");
-        ville=ville.replaceAll(" les ","-lès-");    ville=ville.replaceAll(" à-","-à-");
+        Nomville=Nomville.replaceAll("-lès ","-lès-");      
+        Nomville=Nomville.replaceAll(" lès-", "-lès-");    
+        Nomville=Nomville.replaceAll(" lès ","-lès-");    
 
-
-        ville=ville.replaceAll(" a ","-à-");        ville=ville.replaceAll("-aux ", "-aux-");
-        ville=ville.replaceAll(" a-","-à-");            ville=ville.replaceAll(" aux ", "-aux-");
-        ville=ville.replaceAll("-a ","-à-");            ville=ville.replaceAll(" aux-", "-aux-");
+        Nomville=Nomville.replaceAll(" le ","-le-");
+        Nomville=Nomville.replaceAll("-le ", "-le-");
+        Nomville=Nomville.replaceAll(" le-", "le");
 
 
-        ville=ville.replaceAll("-sous ","-sous-");    ville=ville.replaceAll("-sur","-sur-");
-        ville=ville.replaceAll(" sous ", "-sous-");    ville=ville.replaceAll(" sur ", "-sur-");
-        ville=ville.replaceAll(" sous-", "-sous-");    ville=ville.replaceAll("sur-", "-sur-");
+
+        Nomville=Nomville.replaceAll("-les ","-lès-");       
+        Nomville=Nomville.replaceAll(" les-", "-lès-");   
+        Nomville=Nomville.replaceAll(" les ","-lès-");   
+
+        Nomville=Nomville.replaceAll(" à ","-à-");
+        Nomville=Nomville.replaceAll("-à ","-à-");
+        Nomville=Nomville.replaceAll(" à-","-à-");
+        
+        Nomville=Nomville.replaceAll(" a ","-à-");     
+        Nomville=Nomville.replaceAll(" a-","-à-");         
+        Nomville=Nomville.replaceAll("-a ","-à-");  
+        
+        Nomville=Nomville.replaceAll("-aux ", "-aux-");
+        Nomville=Nomville.replaceAll(" aux ", "-aux-");
+        Nomville=Nomville.replaceAll(" aux-", "-aux-");
 
 
-        return ville;
-        }*/
+        Nomville=Nomville.replaceAll("-sous ","-sous-");   
+        Nomville=Nomville.replaceAll(" sous ", "-sous-");    
+        Nomville=Nomville.replaceAll(" sous-", "-sous-");    
+
+        Nomville=Nomville.replaceAll("-sur","-sur-");
+        Nomville=Nomville.replaceAll(" sur ", "-sur-");
+        Nomville=Nomville.replaceAll("sur-", "-sur-");
+        
+        
+        return Nomville;
+		}
 }
