@@ -30,7 +30,7 @@
   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- -->
+-->
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -46,11 +46,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" style="-fx-padding: 10px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" style="-fx-padding: 10px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControleurCreerRevue">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="281.0" prefWidth="651.0" VBox.vgrow="ALWAYS">
       <children>
-            <GridPane layoutX="6.0" prefHeight="247.0" prefWidth="640.0" style="-fx-border-style: solid; -fx-border-width: 3;">
+            <GridPane layoutX="6.0" prefHeight="278.0" prefWidth="640.0" style="-fx-border-style: solid; -fx-border-width: 3;">
               <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="129.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="2.0" prefWidth="71.0" />
@@ -110,14 +110,18 @@
                   </Label>
                </children>
             </GridPane>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="-1.0" layoutY="314.0" prefHeight="102.0" prefWidth="646.0">
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="-1.0" layoutY="299.0" prefHeight="91.0" prefWidth="646.0">
                <children>
-                  <Button fx:id="bt_creer" mnemonicParsing="false" onAction="#clickbutton" text="Créer" />
+                  <Button fx:id="bt_creer" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clickbutton" prefHeight="26.0" prefWidth="63.0" text="Créer" />
                </children>
             </FlowPane>
-            <FlowPane alignment="CENTER" layoutX="-3.0" layoutY="416.0" prefHeight="45.0" prefWidth="658.0">
+            <FlowPane alignment="CENTER" layoutX="-3.0" layoutY="393.0" prefHeight="68.0" prefWidth="658.0">
                <children>
-                  <Label fx:id="lbl_recap" alignment="CENTER" />
+                  <Label fx:id="lbl_recap" alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </FlowPane>
       </children>
