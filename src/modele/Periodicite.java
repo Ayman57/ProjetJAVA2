@@ -1,5 +1,8 @@
 package modele;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Periodicite {
 
 	private int idPeriodicite;
@@ -41,6 +44,9 @@ public class Periodicite {
 	}
 
 	public void setIdPeriodicite(int idPeriodicite) {
+		if (idPeriodicite < -1) 
+			throw new IllegalArgumentException("L'id de la Periodicité ne peut pas être négatif ");
+		else
 		this.idPeriodicite = idPeriodicite;
 	}
 
@@ -49,7 +55,17 @@ public class Periodicite {
 	}
 
 	public void setLibelle(String libelle) {
-		this.libelle = libelle;
+		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
+        Matcher matcherLibelle = pattern.matcher(this.getLibelle());
+
+        if(this.getLibelle()==null) 
+            throw new IllegalArgumentException("Le Libelle doit être saisie");
+        else if("".equals(this.getLibelle())) 
+            throw new IllegalArgumentException("Saisir le libelle correctement");
+        else if(!matcherLibelle.find()) 
+            throw new IllegalArgumentException("Saisir le libelle correctement");
+        else
+        	this.libelle = libelle;
 	}
 
 }

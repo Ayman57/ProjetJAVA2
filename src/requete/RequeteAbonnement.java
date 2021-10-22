@@ -1,13 +1,14 @@
 package requete;
 
 import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import connexion.Connexion;
+import dao.mysql.Connexion;
 import modele.Abonnement;
 import modele.Client;
 
@@ -54,10 +55,10 @@ public class RequeteAbonnement {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
 			PreparedStatement req = laConnexion.prepareStatement(" update Abonnement set  date_debut=?, date_fin=?, id_client=?, id_revue=?",Statement.RETURN_GENERATED_KEYS);
-			req.setDate(1, objet.getDate_debut());
-			req.setDate(2, objet.getDate_fin());
-			req.setInt(3, objet.getId_client());
-			req.setInt(4, objet.getId_revue());
+			req.setDate(1, objet.getDateDebut());
+			req.setDate(2, objet.getDateFin());
+			req.setInt(3, objet.getIdClient());
+			req.setInt(4, objet.getIdRevue());
 			int nbLignes = req.executeUpdate();
 			
 			ResultSet res = req.getGeneratedKeys();

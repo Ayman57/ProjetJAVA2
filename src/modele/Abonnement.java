@@ -8,20 +8,20 @@ public class Abonnement {
 	private int idAbonnement;
 	private LocalDate dateDebut;
 	private LocalDate dateFin;
-	private int idClient;
-	private int idRevue;
+	private Client client;
+	private Revue revue;
 	
-	public Abonnement(int idAbonnement, LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue) {
+	public Abonnement(int idAbonnement, LocalDate dateDebut, LocalDate dateFin, Client client, Revue revue) {
 		this.setIdAbonnement(idAbonnement);
 		this.setDateDebut(dateDebut);
 		this.setDateFin(dateFin);
-		this.setIdClient(idClient);
-		this.setIdRevue(idRevue);
+		this.setClient(client);
+		this.setRevue(revue);
 	}
 	
-	public Abonnement( LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue) {
+	public Abonnement( LocalDate dateDebut, LocalDate dateFin, Client client, Revue revue) {
 	
-		this(-1, dateDebut, dateFin, idClient, idRevue);
+		this(-1, dateDebut, dateFin, client, revue);
 	}
 
 	public int getIdAbonnement() {
@@ -29,7 +29,10 @@ public class Abonnement {
 	}
 
 	public void setIdAbonnement(int idAbonnement) {
-		this.idAbonnement = idAbonnement;
+		if (idAbonnement < -1)
+			throw new IllegalArgumentException("L' id Abonnement doit être positif");
+		else	
+			this.idAbonnement = idAbonnement;
 	}
 
 	public LocalDate getDateDebut() {
@@ -37,7 +40,10 @@ public class Abonnement {
 	}
 
 	public void setDateDebut(LocalDate dateDebut) {
-		this.dateDebut = dateDebut;
+		if(this.dateDebut.isAfter(this.dateFin) && this.dateFin!=null) 
+			throw new IllegalArgumentException("Date de debut n'est pas valide");
+		else
+			this.dateDebut = dateDebut;
 	}
 
 	public LocalDate getDateFin() {
@@ -45,30 +51,41 @@ public class Abonnement {
 	}
 
 	public void setDateFin(LocalDate dateFin) {
+		if(this.dateFin.isBefore(this.dateDebut) && this.dateDebut!=null) 
+			throw new IllegalArgumentException("Date de fin n'est pas valide");
+		
 		this.dateFin = dateFin;
 	}
 
-	public int getIdClient() {
-		return idClient;
+	public Client  getClient() {
+		return client;
 	}
 
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
+	public void setClient(Client client) {
+		if(client==null) 
+			throw new IllegalArgumentException("Client doit être valide");
+		else
+			this.client = client;
 	}
 
-	public int getIdRevue() {
-		return idRevue;
+	public Revue getRevue() {
+		return revue;
 	}
 
-	public void setIdRevue(int idRevue) {
-		this.idRevue = idRevue;
+	public void setRevue(Revue revue) {
+		if(revue==null) 
+			throw new IllegalArgumentException("Revue doit être valide");
+		else
+			this.revue = revue;
 	}
+
+
 
 
 	@Override
 	public String toString() {
 		return "Abonnement [idAbonnement=" + idAbonnement + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin
-				+ ", idClient=" + idClient + ", idRevue=" + idRevue + "]";
+				+ ", client=" + client + ", revue=" + revue + "]";
 	}
 
 	@Override

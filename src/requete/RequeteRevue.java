@@ -1,12 +1,13 @@
 package requete;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import connexion.Connexion;
+import dao.mysql.Connexion;
 import modele.Client;
 import modele.Revue;
 
@@ -55,9 +56,9 @@ public class RequeteRevue {
 			PreparedStatement req =	laConnexion.prepareStatement(" update Revue set  titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? ", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getTitre());
 			req.setString(2, objet.getDescription());
-			req.setDouble(3, objet.getTarif_numero());
+			req.setDouble(3, objet.getTarifNumero());
 			req.setString(4, objet.getVisuel());
-			req.setInt(5, objet.getId_periodicite());
+			req.setInt(5, objet.getIdPeriodicite());
 			int nbLignes = req.executeUpdate();
 			
 			ResultSet res = req.getGeneratedKeys();

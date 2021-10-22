@@ -1,5 +1,8 @@
 package modele;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Client {
 	
 	private int idClient;
@@ -32,7 +35,10 @@ public class Client {
 	}
 
 	public void setIdClient(int idClient) {
-		this.idClient = idClient;
+		if (idClient < -1) 
+			throw new IllegalArgumentException("L'id du Client ne peut pas être négatif");
+		else
+			this.idClient = idClient;
 	}
 
 	public String getNom() {
@@ -40,7 +46,18 @@ public class Client {
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		
+		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
+        Matcher matcherNom = pattern.matcher(this.getNom());
+
+        if(this.getNom()==null) 
+            throw new IllegalArgumentException("Le Nom doit être saisie");
+        else if("".equals(this.getNom())) 
+            throw new IllegalArgumentException("Saisir le nom correctement");
+        else if(!matcherNom.find()) 
+            throw new IllegalArgumentException("Saisir le nom correctement");
+        else 
+            this.nom = nom;
 	}
 
 	public String getPrenom() {
@@ -48,46 +65,94 @@ public class Client {
 	}
 
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
+        Matcher matcherPrenom = pattern.matcher(this.getPrenom());
+
+        if(this.getPrenom()==null) 
+            throw new IllegalArgumentException("Le prénom doit être saisie");
+        else if("".equals(this.getPrenom())) 
+            throw new IllegalArgumentException("Saisir le prénom correctement");
+        else if(!matcherPrenom.find()) 
+            throw new IllegalArgumentException("Saisir le prénom correctement");
+        else 
+            this.prenom = prenom;
+    }
 
 	public String getNoRue() {
 		return noRue;
 	}
 
 	public void setNoRue(String noRue) {
-		this.noRue = noRue;
-	}
+		
+        if(this.getNoRue()==null) 
+            throw new IllegalArgumentException("Le No de rue doit être saisie");
+        else if("".equals(this.getNoRue())) 
+            throw new IllegalArgumentException("Saisir le no de rue correctement");
+        else 
+            this.noRue = noRue;
+    }
+		
+		
+			
 
 	public String getVoie() {
 		return voie;
 	}
 
 	public void setVoie(String voie) {
-		this.voie = voie;
-	}
+		 if(this.getVoie()==null) 
+	            throw new IllegalArgumentException("La Voie doit être saisie");
+	        else if("".equals(this.getVoie())) 
+	            throw new IllegalArgumentException("Saisir la voie correctement");
+	        else 
+	            this.voie = voie;
+	    }
 
 	public String getCodePostal() {
 		return codePostal;
 	}
 
 	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
-	}
+		 if(this.getCodePostal()==null) 
+	            throw new IllegalArgumentException("Le Code Postal doit être saisie");
+	        else if("".equals(this.getCodePostal())) 
+	            throw new IllegalArgumentException("Saisir le Code Postal correctement");
+	        else 
+	            this.codePostal = codePostal;
+	    }	
 
 	public String getVille() {
 		return ville;
 	}
 
 	public void setVille(String ville) {
+		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
+        Matcher matcherVille = pattern.matcher(this.getVille());
+
+        if(this.getVille()==null) 
+            throw new IllegalArgumentException("La Ville doit être saisie");
+        else if("".equals(this.getVille())) 
+            throw new IllegalArgumentException("Saisir la Ville correctement");
+        else if(!matcherVille.find()) 
+            throw new IllegalArgumentException("Saisir la Ville correctement");
+        else 
 		this.ville = ville;
 	}
-
 	public String getPays() {
 		return pays;
 	}
 
 	public void setPays(String pays) {
+		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
+        Matcher matcherPays = pattern.matcher(this.getPays());
+
+        if(this.getPays()==null) 
+            throw new IllegalArgumentException("Le Pays doit être saisie");
+        else if("".equals(this.getPays())) 
+            throw new IllegalArgumentException("Saisir le Pays correctement");
+        else if(!matcherPays.find()) 
+            throw new IllegalArgumentException("Saisir le Pays correctement");
+        else 
 		this.pays = pays;
 	}
 

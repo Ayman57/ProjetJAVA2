@@ -1,6 +1,6 @@
  package requete;
 
-import connexion.Connexion;
+
 import modele.Client;
 import modele.Periodicite;
 
@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import connexion.Connexion;
+import dao.mysql.Connexion;
 
 public class RequetePeriodicite  {
 
