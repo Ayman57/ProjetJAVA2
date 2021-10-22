@@ -24,10 +24,10 @@ public class MYSQLAbonnementDAO implements AbonnementDAO {
 			PreparedStatement req = laConnexion.prepareStatement(
 					" INSERT INTO Abonnement (date_debut, date_fin, id_client, id_revue ) VALUES (?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
-			req.setDate(1, objet.getDate_debut());
-			req.setDate(2, objet.getDate_fin());
-			req.setInt(3, objet.getId_client());
-			req.setInt(4, objet.getId_revue());
+			req.setDate(1, objet.getDateDebut());
+			req.setDate(2, objet.getDateFin());
+			req.setInt(3, objet.getIdClient());
+			req.setInt(4, objet.getIdRevue());
 			 nbLignes = req.executeUpdate();
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
@@ -47,10 +47,10 @@ public class MYSQLAbonnementDAO implements AbonnementDAO {
 			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
 			PreparedStatement req = laConnexion.prepareStatement(" update Abonnement set  date_debut=?, date_fin=?, id_client=?, id_revue=?",Statement.RETURN_GENERATED_KEYS);
-			req.setDate(1, objet.getDate_debut());
-			req.setDate(2, objet.getDate_fin());
-			req.setInt(3, objet.getId_client());
-			req.setInt(4, objet.getId_revue());
+			req.setDate(1, objet.getDateDebut());
+			req.setDate(2, objet.getDateFin());
+			req.setInt(3, objet.getIdClient());
+			req.setInt(4, objet.getIdRevue());
 			 nbLignes = req.executeUpdate();
 
 			ResultSet res = req.getGeneratedKeys();
@@ -71,7 +71,7 @@ public class MYSQLAbonnementDAO implements AbonnementDAO {
 		try {
 			Connection laConnexion = Connexion.creeConnexion();
 			PreparedStatement requete = laConnexion.prepareStatement("delete from  Abonnement where id_abonnement=?");
-			requete.setInt(1, objet.getId_abonnement());
+			requete.setInt(1, objet.getIdAbonnement());
 			nbLignes = requete.executeUpdate();
 
 		} catch (SQLException sqle) {

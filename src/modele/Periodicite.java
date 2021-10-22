@@ -2,20 +2,46 @@ package modele;
 
 public class Periodicite {
 
-	private int id_periodicite;
+	private int idPeriodicite;
 	private String libelle;
+
+	public Periodicite(int idPeriodicite, String libelle) {
+		this.setIdPeriodicite(idPeriodicite);
+		this.setLibelle(libelle);
+	}
 	
-	public Periodicite(int id_periodicite, String libelle) {
-		this.id_periodicite = id_periodicite;
-		this.libelle = libelle;
+	public Periodicite( String libelle) {
+		this(-1,libelle);
 	}
 
-	public int getId_periodicite() {
-		return id_periodicite;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Periodicite other = (Periodicite) obj;
+		if (idPeriodicite != other.idPeriodicite)
+			return false;
+		return true;
 	}
 
-	public void setId_periodicite(int id_periodicite) {
-		this.id_periodicite = id_periodicite;
+
+	@Override
+	public String toString() {
+		return "Periodicite [idPeriodicite=" + idPeriodicite + ", libelle=" + libelle + "]";
+	}
+
+
+
+	public int getIdPeriodicite() {
+		return idPeriodicite;
+	}
+
+	public void setIdPeriodicite(int idPeriodicite) {
+		this.idPeriodicite = idPeriodicite;
 	}
 
 	public String getLibelle() {
@@ -26,7 +52,4 @@ public class Periodicite {
 		this.libelle = libelle;
 	}
 
-	
-	
-	
 }

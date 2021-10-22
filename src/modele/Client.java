@@ -13,14 +13,18 @@ public class Client {
 	
 	public Client(int idClient, String nom, String prenom, String noRue, String voie, String codePostal,
 			String ville, String pays) {
-		this.idClient = idClient;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.noRue = noRue;
-		this.voie = voie;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.pays = pays;
+		this.setIdClient(idClient);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setNoRue(noRue);
+		this.setVoie(voie);
+		this.setCodePostal(codePostal);
+		this.setVille(ville);
+		this.setPays(pays);
+	}
+	public Client( String nom, String prenom, String noRue, String voie, String codePostal,
+			String ville, String pays) {
+		this(-1, nom, prenom, noRue, voie,codePostal, ville, pays);
 	}
 
 	public int getIdClient() {
@@ -85,6 +89,25 @@ public class Client {
 
 	public void setPays(String pays) {
 		this.pays = pays;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Client other = (Client) obj;
+		if (idClient != other.idClient)
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", noRue=" + noRue + ", voie="
+				+ voie + ", codePostal=" + codePostal + ", ville=" + ville + ", pays=" + pays + "]";
 	}
 
 	

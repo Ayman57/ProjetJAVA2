@@ -35,11 +35,11 @@ public class ListeMemoireClientDAO implements ClientDAO{
 	@Override
 	public boolean create(Client objet) {
 
-		objet.setId_client(3);
+		objet.setIdClient(3);
 		// Ne fonctionne que si l'objet métier est bien fait...
 		while (this.donnees.contains(objet)) {
 
-			objet.setId_client(objet.getId_client() + 1);
+			objet.setIdClient(objet.getIdClient() + 1);
 		}
 		boolean ok = this.donnees.add(objet);
 		

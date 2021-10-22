@@ -11,12 +11,16 @@ public class Revue {
  private int idPeriodicite;
  
 public Revue(int idRevue, String titre, String description, double tarifNumero, String visuel, int idPeriodicite) {
-	this.idRevue = idRevue;
-	this.titre = titre;
-	this.description = description;
-	this.tarifNumero = tarifNumero;
-	this.visuel = visuel;
-	this.idPeriodicite = idPeriodicite;
+	this.setIdRevue(idRevue);
+	this.setTitre(titre);
+	this.setDescription(description);
+	this.setTarifNumero(tarifNumero);
+	this.setVisuel(visuel);
+	this.setIdPeriodicite(idPeriodicite);
+}
+
+public Revue(String titre, String description, double tarifNumero, String visuel, int idPeriodicite) {
+	this(-1, titre, description, tarifNumero, visuel, idPeriodicite);
 }
 
 public int getIdRevue() {
@@ -65,6 +69,28 @@ public int getIdPeriodicite() {
 
 public void setIdPeriodicite(int idPeriodicite) {
 	this.idPeriodicite = idPeriodicite;
+}
+
+
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Revue other = (Revue) obj;
+	if (idPeriodicite != other.idPeriodicite)
+		return false;
+	return true;
+}
+
+@Override
+public String toString() {
+	return "Revue [idRevue=" + idRevue + ", titre=" + titre + ", description=" + description + ", tarifNumero="
+			+ tarifNumero + ", visuel=" + visuel + ", idPeriodicite=" + idPeriodicite + "]";
 }
 
 

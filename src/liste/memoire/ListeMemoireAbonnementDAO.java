@@ -34,11 +34,11 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 	@Override
 	public boolean create(Abonnement objet) {
 
-		objet.setId_abonnement(3);
+		objet.setIdAbonnement(3);
 		// Ne fonctionne que si l'objet métier est bien fait...
 		while (this.donnees.contains(objet)) {
 
-			objet.setId_abonnement(objet.getId_abonnement() + 1);
+			objet.setIdAbonnement(objet.getIdAbonnement() + 1);
 		}
 		boolean ok = this.donnees.add(objet);
 		

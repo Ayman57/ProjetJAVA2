@@ -1,13 +1,13 @@
 package dao.mysql;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import connexion.Connexion;
 import dao.ClientDAO;
 import modele.Client;
 
@@ -44,9 +44,9 @@ public class MYSQLClientDAO implements ClientDAO{
 			PreparedStatement req =	laConnexion.prepareStatement(" INSERT INTO Client (nom, prenom, no_rue, voie, code_postal, ville, pays ) VALUES (?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getNom());
 			req.setString(2, objet.getPrenom());
-			req.setString(3, objet.getNo_rue());
+			req.setString(3, objet.getNoRue());
 			req.setString(4, objet.getVoie());
-			req.setString(5, objet.getCode_postale());
+			req.setString(5, objet.getCodePostal());
 			req.setString(6, objet.getVille());
 			req.setString(7, objet.getPays());
 			 nbLignes = req.executeUpdate();
@@ -72,9 +72,9 @@ public class MYSQLClientDAO implements ClientDAO{
 			PreparedStatement req =	laConnexion.prepareStatement(" update Client set  nom=?, prenom=?, no_rue=?, voie=?, code_postal=?, ville=?, pays=?", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getNom());
 			req.setString(2, objet.getPrenom());
-			req.setString(3, objet.getNo_rue());
+			req.setString(3, objet.getNoRue());
 			req.setString(4, objet.getVoie());
-			req.setString(5, objet.getCode_postale());
+			req.setString(5, objet.getCodePostal());
 			req.setString(6, objet.getVille());
 			req.setString(7, objet.getPays());
 			 nbLignes = req.executeUpdate();
@@ -97,7 +97,7 @@ public class MYSQLClientDAO implements ClientDAO{
 		try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Client where id_client=?");
-					  requete.setInt(1, objet.getId_client());
+					  requete.setInt(1, objet.getIdClient());
 					   nbLignes = requete.executeUpdate();
 					
 		

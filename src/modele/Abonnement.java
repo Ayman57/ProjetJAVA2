@@ -12,11 +12,16 @@ public class Abonnement {
 	private int idRevue;
 	
 	public Abonnement(int idAbonnement, LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue) {
-		this.idAbonnement = idAbonnement;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
-		this.idClient = idClient;
-		this.idRevue = idRevue;
+		this.setIdAbonnement(idAbonnement);
+		this.setDateDebut(dateDebut);
+		this.setDateFin(dateFin);
+		this.setIdClient(idClient);
+		this.setIdRevue(idRevue);
+	}
+	
+	public Abonnement( LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue) {
+	
+		this(-1, dateDebut, dateFin, idClient, idRevue);
 	}
 
 	public int getIdAbonnement() {
@@ -57,6 +62,27 @@ public class Abonnement {
 
 	public void setIdRevue(int idRevue) {
 		this.idRevue = idRevue;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Abonnement [idAbonnement=" + idAbonnement + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin
+				+ ", idClient=" + idClient + ", idRevue=" + idRevue + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Abonnement other = (Abonnement) obj;
+		if (idAbonnement != other.idAbonnement)
+			return false;
+		return true;
 	}
 	
 	

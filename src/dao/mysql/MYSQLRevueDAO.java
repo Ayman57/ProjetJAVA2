@@ -1,6 +1,7 @@
 package dao.mysql;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 
 import com.mysql.cj.xdevapi.Client;
 
-import connexion.Connexion;
 import dao.RevueDAO;
 import modele.Periodicite;
 import modele.Revue;
@@ -57,9 +57,9 @@ public class MYSQLRevueDAO implements RevueDAO{
 			PreparedStatement req =	laConnexion.prepareStatement(" INSERT INTO Revue (titre, description, tarif_numero, visuel, id_periodicite) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getTitre());
 			req.setString(2, objet.getDescription());
-			req.setDouble(3, objet.getTarif_numero());
+			req.setDouble(3, objet.getTarifNumero());
 			req.setString(4, objet.getVisuel());
-			req.setInt(5, objet.getId_periodicite());
+			req.setInt(5, objet.getIdPeriodicite());
 			 nbLignes = req.executeUpdate();
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
@@ -83,9 +83,9 @@ public class MYSQLRevueDAO implements RevueDAO{
 			PreparedStatement req =	laConnexion.prepareStatement(" update Revue set  titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? ", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getTitre());
 			req.setString(2, objet.getDescription());
-			req.setDouble(3, objet.getTarif_numero());
+			req.setDouble(3, objet.getTarifNumero());
 			req.setString(4, objet.getVisuel());
-			req.setInt(5, objet.getId_periodicite());
+			req.setInt(5, objet.getIdPeriodicite());
 			 nbLignes = req.executeUpdate();
 			
 			ResultSet res = req.getGeneratedKeys();
@@ -106,7 +106,7 @@ public class MYSQLRevueDAO implements RevueDAO{
 		 try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Revue where id_revue=?");
-					  requete.setInt(1, objet.getId_revue());
+					  requete.setInt(1, objet.getIdRevue());
 					   nbLignes = requete.executeUpdate();
 					
 		

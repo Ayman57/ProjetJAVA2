@@ -34,11 +34,11 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO {
 	@Override
 	public boolean create(Periodicite objet) {
 
-		objet.setId_periodicite(3);
+		objet.setIdPeriodicite(3);
 		// Ne fonctionne que si l'objet métier est bien fait...
 		while (this.donnees.contains(objet)) {
 
-			objet.setId_periodicite(objet.getId_periodicite() + 1);
+			objet.setIdPeriodicite(objet.getIdPeriodicite() + 1);
 		}
 		boolean ok = this.donnees.add(objet);
 		

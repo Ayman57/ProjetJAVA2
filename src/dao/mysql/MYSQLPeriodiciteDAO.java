@@ -1,13 +1,13 @@
 package dao.mysql;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import connexion.Connexion;
 import dao.PeriodiciteDAO;
 import modele.Client;
 import modele.Periodicite;
@@ -86,7 +86,7 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Periodicite where id_periodicite=?");
-					  requete.setInt(1, objet.getId_periodicite());
+					  requete.setInt(1, objet.getIdPeriodicite());
 					   nbLignes = requete.executeUpdate();
 					
 		

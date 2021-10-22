@@ -1,6 +1,5 @@
 package main;
 
-import connexion.Connexion;
 import dao.mysql.MYSQLAbonnementDAO;
 import dao.mysql.MYSQLClientDAO;
 import dao.mysql.MYSQLPeriodiciteDAO;
@@ -13,7 +12,7 @@ import requete.RequeteAbonnement;
 import requete.RequeteClient;
 import requete.RequetePeriodicite;
 import requete.RequeteRevue;
-
+import dao.mysql.Connexion;
 import java.sql.Date;
 
 

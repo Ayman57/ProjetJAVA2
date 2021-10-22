@@ -34,11 +34,11 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 
 	public boolean create(Revue objet) {
 
-		objet.setId_revue(3);
+		objet.setIdRevue(3);
 		// Ne fonctionne que si l'objet métier est bien fait...
 		while (this.donnees.contains(objet)) {
 
-			objet.setId_revue(objet.getId_revue() + 1);
+			objet.setIdRevue(objet.getIdRevue() + 1);
 		}
 		boolean ok = this.donnees.add(objet);
 		
