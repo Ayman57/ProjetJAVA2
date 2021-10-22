@@ -1,61 +1,62 @@
 package modele;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Abonnement {
 
-	private int id_abonnement;
-	private Date date_debut;
-	private Date date_fin;
-	private int id_client;
-	private int id_revue;
+	private int idAbonnement;
+	private LocalDate dateDebut;
+	private LocalDate dateFin;
+	private int idClient;
+	private int idRevue;
 	
-	public Abonnement(int id_abonnement, Date date_debut, Date date_fin, int id_client, int id_revue) {
-		this.id_abonnement = id_abonnement;
-		this.date_debut = date_debut;
-		this.date_fin = date_fin;
-		this.id_client = id_client;
-		this.id_revue = id_revue;
+	public Abonnement(int idAbonnement, LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue) {
+		this.idAbonnement = idAbonnement;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.idClient = idClient;
+		this.idRevue = idRevue;
 	}
 
-	public int getId_abonnement() {
-		return id_abonnement;
+	public int getIdAbonnement() {
+		return idAbonnement;
 	}
 
-	public void setId_abonnement(int id_abonnement) {
-		this.id_abonnement = id_abonnement;
+	public void setIdAbonnement(int idAbonnement) {
+		this.idAbonnement = idAbonnement;
 	}
 
-	public Date getDate_debut() {
-		return date_debut;
+	public LocalDate getDateDebut() {
+		return dateDebut;
 	}
 
-	public void setDate_debut(Date date_debut) {
-		this.date_debut = date_debut;
+	public void setDateDebut(LocalDate dateDebut) {
+		this.dateDebut = dateDebut;
 	}
 
-	public Date getDate_fin() {
-		return date_fin;
+	public LocalDate getDateFin() {
+		return dateFin;
 	}
 
-	public void setDate_fin(Date date_fin) {
-		this.date_fin = date_fin;
+	public void setDateFin(LocalDate dateFin) {
+		this.dateFin = dateFin;
 	}
 
-	public int getId_client() {
-		return id_client;
+	public int getIdClient() {
+		return idClient;
 	}
 
-	public void setId_client(int id_client) {
-		this.id_client = id_client;
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
 	}
 
-	public int getId_revue() {
-		return id_revue;
+	public int getIdRevue() {
+		return idRevue;
 	}
 
-	public void setId_revue(int id_revue) {
-		this.id_revue = id_revue;
+	public void setIdRevue(int idRevue) {
+		this.idRevue = idRevue;
 	}
 	
 	

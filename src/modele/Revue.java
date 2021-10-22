@@ -1,28 +1,30 @@
 package modele;
 
 public class Revue {
- private int id_revue;
+	
+ private int idRevue;
  private String titre;
  private String description;
- private double tarif_numero;
- private String visuel;
- private int id_periodicite;
+ private double tarifNumero;
  
-public Revue(int id_revue, String titre, String description, double tarif_numero, String visuel, int id_periodicite) {
-	this.id_revue = id_revue;
+ private String visuel;
+ private int idPeriodicite;
+ 
+public Revue(int idRevue, String titre, String description, double tarifNumero, String visuel, int idPeriodicite) {
+	this.idRevue = idRevue;
 	this.titre = titre;
 	this.description = description;
-	this.tarif_numero = tarif_numero;
+	this.tarifNumero = tarifNumero;
 	this.visuel = visuel;
-	this.id_periodicite = id_periodicite;
+	this.idPeriodicite = idPeriodicite;
 }
 
-public int getId_revue() {
-	return id_revue;
+public int getIdRevue() {
+	return idRevue;
 }
 
-public void setId_revue(int id_revue) {
-	this.id_revue = id_revue;
+public void setIdRevue(int idRevue) {
+	this.idRevue = idRevue;
 }
 
 public String getTitre() {
@@ -41,12 +43,12 @@ public void setDescription(String description) {
 	this.description = description;
 }
 
-public double getTarif_numero() {
-	return tarif_numero;
+public double getTarifNumero() {
+	return tarifNumero;
 }
 
-public void setTarif_numero(double tarif_numero) {
-	this.tarif_numero = tarif_numero;
+public void setTarifNumero(double tarifNumero) {
+	this.tarifNumero = tarifNumero;
 }
 
 public String getVisuel() {
@@ -57,12 +59,12 @@ public void setVisuel(String visuel) {
 	this.visuel = visuel;
 }
 
-public int getId_periodicite() {
-	return id_periodicite;
+public int getIdPeriodicite() {
+	return idPeriodicite;
 }
 
-public void setId_periodicite(int id_periodicite) {
-	this.id_periodicite = id_periodicite;
+public void setIdPeriodicite(int idPeriodicite) {
+	this.idPeriodicite = idPeriodicite;
 }
 
 

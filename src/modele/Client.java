@@ -2,33 +2,33 @@ package modele;
 
 public class Client {
 	
-	private int id_client;
+	private int idClient;
 	private String nom;
 	private String prenom; 
-	private String no_rue;
+	private String noRue;
 	private String voie ;
-	private String code_postale; 
+	private String codePostal; 
 	private String ville;
 	private String pays;
 	
-	public Client(int id_client, String nom, String prenom, String no_rue, String voie, String code_postale,
+	public Client(int idClient, String nom, String prenom, String noRue, String voie, String codePostal,
 			String ville, String pays) {
-		this.id_client = id_client;
+		this.idClient = idClient;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.no_rue = no_rue;
+		this.noRue = noRue;
 		this.voie = voie;
-		this.code_postale = code_postale;
+		this.codePostal = codePostal;
 		this.ville = ville;
 		this.pays = pays;
 	}
 
-	public int getId_client() {
-		return id_client;
+	public int getIdClient() {
+		return idClient;
 	}
 
-	public void setId_client(int id_client) {
-		this.id_client = id_client;
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
 	}
 
 	public String getNom() {
@@ -47,12 +47,12 @@ public class Client {
 		this.prenom = prenom;
 	}
 
-	public String getNo_rue() {
-		return no_rue;
+	public String getNoRue() {
+		return noRue;
 	}
 
-	public void setNo_rue(String no_rue) {
-		this.no_rue = no_rue;
+	public void setNoRue(String noRue) {
+		this.noRue = noRue;
 	}
 
 	public String getVoie() {
@@ -63,12 +63,12 @@ public class Client {
 		this.voie = voie;
 	}
 
-	public String getCode_postale() {
-		return code_postale;
+	public String getCodePostal() {
+		return codePostal;
 	}
 
-	public void setCode_postale(String code_postale) {
-		this.code_postale = code_postale;
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
 	}
 
 	public String getVille() {

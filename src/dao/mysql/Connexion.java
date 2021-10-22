@@ -1,4 +1,4 @@
-package connexion;
+package dao.mysql;
 
 import java.sql.*;
 public class Connexion  {
