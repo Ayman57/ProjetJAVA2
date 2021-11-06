@@ -27,8 +27,8 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 
 		this.donnees = new ArrayList<Revue>();
 
-		this.donnees.add(new Revue(1, "La Revue", "Qu'est ce qu'un bon produit", 10, "Revue", 1));
-		this.donnees.add(new Revue(2, "La Revue", "Decouvrir l'histoire", 8, "Revue", 2));
+		this.donnees.add(new Revue(1, "La Revue", "Qu'est ce qu'un bon produit", 10, "Revue", null));
+		this.donnees.add(new Revue(2, "La Revue", "Decouvrir l'histoire", 8, "Revue", null));
 	}
 
 
@@ -77,7 +77,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	@Override
 	public Revue getById(int id) {
 		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new Revue(id, "titre","description", 10 , "visuel", 1));
+		int idx = this.donnees.indexOf(new Revue(id, "titre","description", 10 , "visuel", null));
 		if (idx == -1) {
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
 		} else {

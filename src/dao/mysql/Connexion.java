@@ -19,27 +19,19 @@ return maConnexion;
   
   
   
-  public void uneRequete() {
-	  try {
-	   Connection laConnexion = creeConnexion();
-	Statement requete = laConnexion.createStatement();
-	ResultSet res = requete.executeQuery("select id_periodicite, libelle from Periodicite");
-	while (res.next()) {
-		int no = res.getInt(1);
-		String libelle = res.getString("libelle");
+  public static void fermeture(Connection laConnexion, PreparedStatement req) throws SQLException {
+		fermeture(laConnexion,req,null);
 	}
+	public static void fermeture(Connection laConnexion, PreparedStatement req, ResultSet res) throws SQLException {
+		
 		if (res != null)
-			res.close();
-			if (requete != null)
-			requete.close();
-			if (laConnexion != null)
-			laConnexion.close();
-
-	
-	  }catch (SQLException sqle) {
-		System.out.println("Pb select" + sqle.getMessage());
-		  } 
-		}
+		       res.close();
+		if (req != null) 
+				req.close();
+		if (laConnexion != null) 
+				laConnexion.close();
+		
+	}
 
 
 

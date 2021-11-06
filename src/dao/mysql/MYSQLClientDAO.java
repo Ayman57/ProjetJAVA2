@@ -36,7 +36,7 @@ public class MYSQLClientDAO implements ClientDAO{
 	}
 
 	@Override
-	public boolean create(Client objet) {
+	public boolean create(Client objet) throws Exception{
 		int nbLignes = 0;
 		 try {
 			   Connection laConnexion = Connexion.creeConnexion();
@@ -53,6 +53,7 @@ public class MYSQLClientDAO implements ClientDAO{
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
 			int cle = res.getInt(1); 
+			objet.setIdClient(cle);
 			}
 			 
 
@@ -64,12 +65,12 @@ public class MYSQLClientDAO implements ClientDAO{
 	}
 
 	@Override
-	public boolean update(Client objet) {
+	public boolean update(Client objet) throws Exception{
 		int nbLignes = 0;
 		 try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
-			PreparedStatement req =	laConnexion.prepareStatement(" update Client set  nom=?, prenom=?, no_rue=?, voie=?, code_postal=?, ville=?, pays=?", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement req =	laConnexion.prepareStatement(" update Client set  nom=?, prenom=?, no_rue=?, voie=?, code_postal=?, ville=?, pays=? WHERE id_client= ?");
 			req.setString(1, objet.getNom());
 			req.setString(2, objet.getPrenom());
 			req.setString(3, objet.getNoRue());
@@ -79,10 +80,7 @@ public class MYSQLClientDAO implements ClientDAO{
 			req.setString(7, objet.getPays());
 			 nbLignes = req.executeUpdate();
 			
-			ResultSet res = req.getGeneratedKeys();
-			if (res.next()) {
-			int cle = res.getInt(1); 
-			}
+			
 			
 			  }catch (SQLException sqle) {
 				System.out.println("Pb select" + sqle.getMessage());
@@ -92,7 +90,7 @@ public class MYSQLClientDAO implements ClientDAO{
 	}
 
 	@Override
-	public boolean delete(Client objet) {
+	public boolean delete(Client objet) throws Exception{
 		int nbLignes = 0;
 		try {
 			   Connection laConnexion = Connexion.creeConnexion();
@@ -115,7 +113,7 @@ public class MYSQLClientDAO implements ClientDAO{
 	}		
 
 	@Override
-	public ArrayList<Client> findAll() {
+	public ArrayList<Client> findAll() throws Exception {
 ArrayList<Client> listecl = new ArrayList<Client>();
 		
 		

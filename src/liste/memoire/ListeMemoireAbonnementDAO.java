@@ -26,8 +26,8 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 
 		this.donnees = new ArrayList<Abonnement>();
 
-		this.donnees.add(new Abonnement(1, null, null,1,1));
-		this.donnees.add(new Abonnement(2, null, null,2,2));
+		this.donnees.add(new Abonnement(1, null, null,null,null));
+		this.donnees.add(new Abonnement(2, null, null,null,null));
 	}
 
 
@@ -79,7 +79,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 	@Override
 	public Abonnement getById(int id) {
 		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new Abonnement(id, null, null,1,1));
+		int idx = this.donnees.indexOf(new Abonnement(id, null, null,null,null));
 		if (idx == -1) {
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
 		} else {

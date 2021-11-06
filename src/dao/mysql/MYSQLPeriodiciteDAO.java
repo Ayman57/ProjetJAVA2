@@ -38,7 +38,7 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 	}
 
 	@Override
-	public boolean create(Periodicite objet) {
+	public boolean create(Periodicite objet) throws Exception{
 		int nbLignes = 0;
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
@@ -49,6 +49,7 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
 			int cle = res.getInt(1); 
+			objet.setIdPeriodicite(cle);
 			}
 			  }catch (SQLException sqle) {
 				System.out.println("Pb select" + sqle.getMessage());
@@ -58,20 +59,16 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 	}
 
 	@Override
-	public boolean update(Periodicite objet) {
+	public boolean update(Periodicite objet) throws Exception{
 		int nbLignes = 0;
 		try {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
-			PreparedStatement req =	laConnexion.prepareStatement(" update Periodicite set  libelle=?", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement req =	laConnexion.prepareStatement(" update Periodicite set  libelle=? WHERE id_periodicite = ?");
 			req.setString(1, objet.getLibelle());
 
 			nbLignes = req.executeUpdate();
 			
-			ResultSet res = req.getGeneratedKeys();
-			if (res.next()) {
-			int cle = res.getInt(1); 
-			}
 			
 			  }catch (SQLException sqle) {
 				System.out.println("Pb select" + sqle.getMessage());
@@ -81,7 +78,7 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 	}
 
 	@Override
-	public boolean delete(Periodicite objet) {
+	public boolean delete(Periodicite objet)throws Exception {
 		int nbLignes=0;
 		  try {
 			   Connection laConnexion = Connexion.creeConnexion();
@@ -97,14 +94,14 @@ public class MYSQLPeriodiciteDAO implements PeriodiciteDAO {
 	}
 
 	@Override
-	public ArrayList<Periodicite> findAll() {
+	public ArrayList<Periodicite> findAll() throws Exception{
 ArrayList<Periodicite> listeper = new ArrayList<Periodicite>();
 		
 		
 		
 		try {
 			Connection laConnexion = Connexion.creeConnexion(); 
-			PreparedStatement req = laConnexion.prepareStatement("select (*) from Client");
+			PreparedStatement req = laConnexion.prepareStatement("select (*) from Periodicite");
 			ResultSet res = req.executeQuery();
 			while (res.next()){
 				listeper.add(new Periodicite(res.getInt("id_periodicite"),res.getString("libelle")));
