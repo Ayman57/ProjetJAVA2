@@ -40,7 +40,7 @@ public class Abonnement {
 	}
 
 	public void setDateDebut(LocalDate dateDebut) {
-		if(this.dateDebut.isAfter(this.dateFin) && this.dateFin!=null) 
+		if(dateDebut.isAfter(this.dateFin) && this.dateFin!=null) 
 			throw new IllegalArgumentException("Date de debut n'est pas valide");
 		else
 			this.dateDebut = dateDebut;
@@ -51,7 +51,7 @@ public class Abonnement {
 	}
 
 	public void setDateFin(LocalDate dateFin) {
-		if(this.dateFin.isBefore(this.dateDebut) && this.dateDebut!=null) 
+		if(dateFin.isBefore(this.dateDebut) && this.dateDebut!=null) 
 			throw new IllegalArgumentException("Date de fin n'est pas valide");
 		
 		this.dateFin = dateFin;
@@ -105,4 +105,3 @@ public class Abonnement {
 	
 }
 
-//test

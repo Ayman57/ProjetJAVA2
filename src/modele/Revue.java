@@ -39,9 +39,9 @@ public String getTitre() {
 }
 
 public void setTitre(String titre) {
-	 if(this.getTitre()==null) 
+	 if(titre==null) 
          throw new IllegalArgumentException("Le Titre doit être saisie");
-     else if("".equals(this.getTitre())) 
+     else if("".equals(titre)) 
          throw new IllegalArgumentException("Saisir le titre correctement");
      else 
 	this.titre = titre;
@@ -52,9 +52,9 @@ public String getDescription() {
 }
 
 public void setDescription(String description) {
-	 if(this.getDescription()==null) 
+	 if(description==null) 
          throw new IllegalArgumentException("La description doit être saisie");
-     else if("".equals(this.getDescription())) 
+     else if("".equals(description)) 
          throw new IllegalArgumentException("Saisir la description correctement");
      else 
 	this.description = description;
@@ -76,9 +76,9 @@ public String getVisuel() {
 }
 
 public void setVisuel(String visuel) {
-	 if(this.getVisuel()==null) 
+	 if(visuel==null) 
          throw new IllegalArgumentException("Le Visuel doit être saisie");
-     else if("".equals(this.getVisuel())) 
+     else if("".equals(visuel)) 
          throw new IllegalArgumentException("Saisir le Visuel correctement");
      else 
 	this.visuel = visuel;
@@ -89,7 +89,7 @@ public Periodicite getPeriodicite() {
 }
 
 public void setPeriodicite(Periodicite periodicite) {
-	if(this.getPeriodicite()==null) 
+	if(periodicite==null) 
 		throw new IllegalArgumentException("Periodicite doit être saisie");
 	else 
 		this.periodicite = periodicite;

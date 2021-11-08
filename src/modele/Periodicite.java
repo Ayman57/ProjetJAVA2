@@ -58,9 +58,9 @@ public class Periodicite {
 		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
         Matcher matcherLibelle = pattern.matcher(this.getLibelle());
 
-        if(this.getLibelle()==null) 
+        if(libelle==null) 
             throw new IllegalArgumentException("Le Libelle doit être saisie");
-        else if("".equals(this.getLibelle())) 
+        else if("".equals(libelle)) 
             throw new IllegalArgumentException("Saisir le libelle correctement");
         else if(!matcherLibelle.find()) 
             throw new IllegalArgumentException("Saisir le libelle correctement");

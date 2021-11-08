@@ -50,9 +50,9 @@ public class Client {
 		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
         Matcher matcherNom = pattern.matcher(this.getNom());
 
-        if(this.getNom()==null) 
+        if(nom==null) 
             throw new IllegalArgumentException("Le Nom doit être saisie");
-        else if("".equals(this.getNom())) 
+        else if("".equals(nom)) 
             throw new IllegalArgumentException("Saisir le nom correctement");
         else if(!matcherNom.find()) 
             throw new IllegalArgumentException("Saisir le nom correctement");
@@ -68,9 +68,9 @@ public class Client {
 		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
         Matcher matcherPrenom = pattern.matcher(this.getPrenom());
 
-        if(this.getPrenom()==null) 
+        if(prenom==null) 
             throw new IllegalArgumentException("Le prénom doit être saisie");
-        else if("".equals(this.getPrenom())) 
+        else if("".equals(prenom)) 
             throw new IllegalArgumentException("Saisir le prénom correctement");
         else if(!matcherPrenom.find()) 
             throw new IllegalArgumentException("Saisir le prénom correctement");
@@ -84,9 +84,9 @@ public class Client {
 
 	public void setNoRue(String noRue) {
 		
-        if(this.getNoRue()==null) 
+        if(noRue==null) 
             throw new IllegalArgumentException("Le No de rue doit être saisie");
-        else if("".equals(this.getNoRue())) 
+        else if("".equals(noRue)) 
             throw new IllegalArgumentException("Saisir le no de rue correctement");
         else 
             this.noRue = noRue;
@@ -100,9 +100,9 @@ public class Client {
 	}
 
 	public void setVoie(String voie) {
-		 if(this.getVoie()==null) 
+		 if(voie==null) 
 	            throw new IllegalArgumentException("La Voie doit être saisie");
-	        else if("".equals(this.getVoie())) 
+	        else if("".equals(voie)) 
 	            throw new IllegalArgumentException("Saisir la voie correctement");
 	        else 
 	            this.voie = voie;
@@ -113,9 +113,9 @@ public class Client {
 	}
 
 	public void setCodePostal(String codePostal) {
-		 if(this.getCodePostal()==null) 
+		 if(codePostal==null) 
 	            throw new IllegalArgumentException("Le Code Postal doit être saisie");
-	        else if("".equals(this.getCodePostal())) 
+	        else if("".equals(codePostal)) 
 	            throw new IllegalArgumentException("Saisir le Code Postal correctement");
 	        else 
 	            this.codePostal = codePostal;
@@ -129,9 +129,9 @@ public class Client {
 		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
         Matcher matcherVille = pattern.matcher(this.getVille());
 
-        if(this.getVille()==null) 
+        if(ville==null) 
             throw new IllegalArgumentException("La Ville doit être saisie");
-        else if("".equals(this.getVille())) 
+        else if("".equals(ville)) 
             throw new IllegalArgumentException("Saisir la Ville correctement");
         else if(!matcherVille.find()) 
             throw new IllegalArgumentException("Saisir la Ville correctement");
@@ -146,9 +146,9 @@ public class Client {
 		Pattern pattern = Pattern.compile("^[A-Za-z-]+$");
         Matcher matcherPays = pattern.matcher(this.getPays());
 
-        if(this.getPays()==null) 
+        if(pays==null) 
             throw new IllegalArgumentException("Le Pays doit être saisie");
-        else if("".equals(this.getPays())) 
+        else if("".equals(pays)) 
             throw new IllegalArgumentException("Saisir le Pays correctement");
         else if(!matcherPays.find()) 
             throw new IllegalArgumentException("Saisir le Pays correctement");
