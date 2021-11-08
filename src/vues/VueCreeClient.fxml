@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControleurCreerClient">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <FlowPane alignment="CENTER" maxHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label text="CLIENT">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="238.0" prefWidth="739.0">
+         <children>
+            <GridPane maxHeight="-Infinity" prefHeight="206.0" prefWidth="600.0" style="-fx-border-style: solid; -fx-border-width: 3px;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.60000839233399" minHeight="10.0" prefHeight="29.199987792968752" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="51.199987792968756" minHeight="3.1999877929687557" prefHeight="22.599993896484378" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="81.60001220703126" minHeight="10.0" prefHeight="34.600006103515625" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="92.0" minHeight="6.799993896484381" prefHeight="24.799999999999997" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.79999389648438" minHeight="10.0" prefHeight="30.400000000000006" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="105.20000305175779" minHeight="10.0" prefHeight="28.800012207031244" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Nom : " GridPane.halignment="RIGHT" />
+                  <Label text="Prénom : " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <Label text="No de Rue : " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <Label text="Voie :" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <Label text="Code Postal : " GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <Label text="Ville : " GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                  <Label text="Pays : " GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                  <TextField fx:id="txt_nom" maxWidth="-Infinity" prefHeight="26.0" prefWidth="170.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="txt_prenom" maxWidth="-Infinity" prefHeight="26.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txt_norue" maxWidth="-Infinity" prefHeight="26.0" prefWidth="56.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txt_voie" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txt_cdpost" maxWidth="-Infinity" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txt_ville" maxWidth="-Infinity" prefHeight="50.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txt_pays" maxWidth="-Infinity" prefHeight="26.0" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="180.0" prefWidth="742.0">
+         <children>
+            <Button fx:id="btn_creer" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ajoutClient" text="Créer" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </FlowPane>
+      <TableView prefHeight="290.0" prefWidth="739.0">
+        <columns>
+          <TableColumn prefWidth="94.39996182918549" text="Nom" />
+            <TableColumn prefWidth="96.00000762939453" text="Prénom" />
+            <TableColumn prefWidth="64.79998779296875" text="No de Rue" />
+            <TableColumn prefWidth="210.39996337890625" text="Voie" />
+            <TableColumn prefWidth="86.39993286132812" text="Code Postal" />
+            <TableColumn prefWidth="79.99993896484375" text="Ville" />
+            <TableColumn prefWidth="110.39996337890625" text="Pays" />
+        </columns>
+      </TableView>
+      <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btn_modifier" mnemonicParsing="false" onAction="#modifierClient" text="Modifier">
+               <FlowPane.margin>
+                  <Insets right="10.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button fx:id="btn_supprimer" mnemonicParsing="false" onAction="#supprimerClient" text="Supprimer">
+               <FlowPane.margin>
+                  <Insets left="10.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
+   </children>
+</VBox>
