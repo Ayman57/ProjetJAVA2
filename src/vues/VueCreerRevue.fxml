@@ -52,7 +52,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="725.0" style="-fx-padding: 10px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControleurCreerRevue">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="725.0" style="-fx-padding: 10px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ControleurCreerRevue">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -119,12 +119,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="lblTitre: " />
-                        <Label text="lblDescription : " GridPane.rowIndex="1" />
-                        <Label text="lblTarif: " GridPane.rowIndex="2" />
-                        <Label text="lblPériodicité: " GridPane.rowIndex="3" />
+                        <Label text="Titre: " />
+                        <Label text="Description : " GridPane.rowIndex="1" />
+                        <Label text="Tarif: " GridPane.rowIndex="2" />
+                        <Label text="Périodicité: " GridPane.rowIndex="3" />
                         <TextField fx:id="txtTitre" maxWidth="-Infinity" prefHeight="26.0" prefWidth="195.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
-                        <TextArea fx:id="txtDescription" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <TextArea fx:id="txtDesc" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                         <TextField fx:id="txtTarif" maxWidth="-Infinity" prefHeight="26.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="euros au numéro" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <ComboBox fx:id="cmbPerio" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
@@ -149,12 +149,13 @@
             </FlowPane>
       </children>
     </AnchorPane>
-      <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="674.0">
+      <TableView fx:id="tblRevue" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="674.0">
         <columns>
-          <TableColumn fx:id="tblRevue" prefWidth="166.39997518062592" text="Titre" />
-          <TableColumn prefWidth="313.6000061035156" text="Description" />
-            <TableColumn prefWidth="95.19989013671875" text="Tarif" />
-            <TableColumn prefWidth="111.20001220703125" text="Periodicité" />
+          <TableColumn fx:id="colTitre" prefWidth="166.39997518062592" text="Titre" />
+          <TableColumn fx:id="colDescription" prefWidth="218.4000061035156" text="Description" />
+            <TableColumn fx:id="colTarif" prefWidth="95.19989013671875" text="Tarif" />
+             <TableColumn fx:id="colVisuel" prefWidth="95.19989013671875" text="Visuel" />
+            <TableColumn fx:id="colPeriodicite" prefWidth="111.20001220703125" text="Periodicité" />
         </columns>
       </TableView>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">

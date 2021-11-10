@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControleurCreerAbonnement">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ControleurCreerAbonnement">
    <children>
       <MenuBar>
         <menus>
@@ -72,25 +72,25 @@
       </GridPane>
       <FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="600.0">
          <children>
-            <Button fx:id="btnCreer" mnemonicParsing="false" onAction="#creerClient" prefHeight="22.0" prefWidth="46.0" text="Créer" />
+            <Button fx:id="btnCreer" mnemonicParsing="false" onAction="#creerAbonnement" prefHeight="22.0" prefWidth="46.0" text="Créer" />
          </children>
       </FlowPane>
       <TableView fx:id="tblAbonnement" prefHeight="142.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="tblDatedeb" prefWidth="152.0" text="Date Début" />
-          <TableColumn fx:id="tblDatefin" prefWidth="148.79998779296875" text="Date Fin" />
-            <TableColumn fx:id="tblClient" prefWidth="138.4000244140625" text="Client" />
-            <TableColumn fx:id="tblPerio" prefWidth="162.4000244140625" text="Periodicite" />
+          <TableColumn fx:id="colDatedeb" prefWidth="152.0" text="Date Début" />
+          <TableColumn fx:id="colDatefin" prefWidth="148.79998779296875" text="Date Fin" />
+            <TableColumn fx:id="colClient" prefWidth="138.4000244140625" text="Client" />
+            <TableColumn fx:id="colPerio" prefWidth="162.4000244140625" text="Periodicite" />
         </columns>
       </TableView>
       <FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="600.0">
          <children>
-            <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#modifierClient" text="Modifier">
+            <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#modifierAbonnement" text="Modifier">
                <FlowPane.margin>
                   <Insets right="10.0" />
                </FlowPane.margin>
             </Button>
-            <Button fx:id="btnSupprimer" mnemonicParsing="false" onAction="#supprimerClient" text="Supprimer" />
+            <Button fx:id="btnSupprimer" mnemonicParsing="false" onAction="#supprimerAbonnement" text="Supprimer" />
          </children>
       </FlowPane>
    </children>

@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControleurCreerClient">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ControleurCreerClient">
    <children>
       <MenuBar>
         <menus>
@@ -72,44 +72,44 @@
                   <Label text="Code Postal : " GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
                   <Label text="Ville : " GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
                   <Label text="Pays : " GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-                  <TextField fx:id="txt_nom" maxWidth="-Infinity" prefHeight="26.0" prefWidth="170.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="txt_prenom" maxWidth="-Infinity" prefHeight="26.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="txt_norue" maxWidth="-Infinity" prefHeight="26.0" prefWidth="56.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="txt_voie" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="txt_cdpost" maxWidth="-Infinity" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="txt_ville" maxWidth="-Infinity" prefHeight="50.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="txt_pays" maxWidth="-Infinity" prefHeight="26.0" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="txtNom" maxWidth="-Infinity" prefHeight="26.0" prefWidth="170.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtPrenom" maxWidth="-Infinity" prefHeight="26.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtNoRue" maxWidth="-Infinity" prefHeight="26.0" prefWidth="56.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtVoie" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtCdpost" maxWidth="-Infinity" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtVille" maxWidth="-Infinity" prefHeight="50.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtPays" maxWidth="-Infinity" prefHeight="26.0" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </children>
       </FlowPane>
       <FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="180.0" prefWidth="742.0">
          <children>
-            <Button fx:id="btn_creer" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ajoutClient" text="Créer" />
+            <Button fx:id="btnCreer" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ajoutClient" text="Créer" />
          </children>
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
       </FlowPane>
-      <TableView prefHeight="290.0" prefWidth="739.0">
+      <TableView fx:id="tblClient" prefHeight="290.0" prefWidth="739.0">
         <columns>
-          <TableColumn prefWidth="94.39996182918549" text="Nom" />
-            <TableColumn prefWidth="96.00000762939453" text="Prénom" />
-            <TableColumn prefWidth="64.79998779296875" text="No de Rue" />
-            <TableColumn prefWidth="210.39996337890625" text="Voie" />
-            <TableColumn prefWidth="86.39993286132812" text="Code Postal" />
-            <TableColumn prefWidth="79.99993896484375" text="Ville" />
-            <TableColumn prefWidth="110.39996337890625" text="Pays" />
+          <TableColumn fx:id="colNom" prefWidth="94.39996182918549" text="Nom" />
+            <TableColumn fx:id="colPrenom" prefWidth="96.00000762939453" text="Prénom" />
+            <TableColumn fx:id="colNoRue" prefWidth="64.79998779296875" text="No de Rue" />
+            <TableColumn fx:id="colVoie" prefWidth="210.39996337890625" text="Voie" />
+            <TableColumn fx:id="colCdPost" prefWidth="86.39993286132812" text="Code Postal" />
+            <TableColumn fx:id="colVille" prefWidth="79.99993896484375" text="Ville" />
+            <TableColumn fx:id="colPays" prefWidth="110.39996337890625" text="Pays" />
         </columns>
       </TableView>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btn_modifier" mnemonicParsing="false" onAction="#modifierClient" text="Modifier">
+            <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#modifierClient" text="Modifier">
                <FlowPane.margin>
                   <Insets right="10.0" />
                </FlowPane.margin>
             </Button>
-            <Button fx:id="btn_supprimer" mnemonicParsing="false" onAction="#supprimerClient" text="Supprimer">
+            <Button fx:id="btnSupprimer" mnemonicParsing="false" onAction="#supprimerClient" text="Supprimer">
                <FlowPane.margin>
                   <Insets left="10.0" />
                </FlowPane.margin>
