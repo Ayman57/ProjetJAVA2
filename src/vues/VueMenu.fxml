@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ControleurMenu">
    <children>
       <MenuBar>
@@ -56,12 +55,12 @@
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <CheckBox fx:id="chkBdd" mnemonicParsing="false" text="Base de Donnée">
+            <CheckBox fx:id="chkBdd" mnemonicParsing="false" onAction="#checkSelection" text="Base de Donnée">
                <FlowPane.margin>
                   <Insets right="10.0" />
                </FlowPane.margin>
             </CheckBox>
-            <CheckBox fx:id="chkLM" mnemonicParsing="false" text="Liste Memoire" />
+            <CheckBox fx:id="chkLM" mnemonicParsing="false" onAction="#checkSelection" text="Liste Memoire" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="41.0" prefWidth="600.0">

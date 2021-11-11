@@ -3,12 +3,14 @@ package controleur;
 import java.io.IOException;
 import java.net.URL;
 
+import application.MainApp;
 import dao.AbonnementDAO;
 import dao.ClientDAO;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
 import dao.Persistance;
 import dao.RevueDAO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -42,18 +44,18 @@ public class ControleurMenu {
 	@FXML
 	private Window vue;
 	
-	
+	private MainApp main;
 
 	
 	
 	@FXML
 	public void gestionPeriodicite() throws IOException {
 		if (chkBdd.isSelected()) {
-			chkLM.setDisable(false);
+			chkLM.setDisable(true);
 			daoPerio = DAOFactory.getDAOFactory(Persistance.MYSQL).getPeriodiciteDAO();
 		} 
 		else if (chkLM.isSelected()) {
-			chkBdd.setDisable(false);
+			chkBdd.setDisable(true);
 			daoPerio = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE).getPeriodiciteDAO();
 		}
 		else {
@@ -69,17 +71,16 @@ public class ControleurMenu {
 			stage.close();
 			Stage stage1 = new Stage();
 			
-			URL fxmlURL = getClass().getResource("vues/VuesCreerPeriodicite.fxml");
+			URL fxmlURL = getClass().getResource("/vues/VueCreerPeriodicite.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 			Node root = fxmlLoader.load();
-			Scene scene = new Scene((VBox) root, 600, 400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
+			Scene scene = new Scene((VBox) root, 600, 400);			
 			stage1.setScene(scene);
 			stage1.setTitle("Gestion des Periodicites");
 			stage1.show();
 		}
 	}
+	
 	@FXML
 	public void gestionAbonnement() throws IOException {
 		if (chkBdd.isSelected()) {
@@ -108,12 +109,10 @@ public class ControleurMenu {
 			stage.close();
 			Stage stage2 = new Stage();
 			
-			URL fxmlURL = getClass().getResource("vues/VueCreerAbonnement.fxml");
+			URL fxmlURL = getClass().getResource("/vues/VueCreerAbonnement.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 			Node root = fxmlLoader.load();
-			Scene scene = new Scene((VBox) root, 600, 400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
+			Scene scene = new Scene((VBox) root, 600, 400);			
 			stage2.setScene(scene);
 			stage2.setTitle("Gestion des Abonnements");
 			stage2.show();
@@ -143,12 +142,10 @@ public class ControleurMenu {
 			stage.close();
 			Stage stage3 = new Stage();
 			
-			URL fxmlURL = getClass().getResource("vues/VuesCreerClient.fxml");
+			URL fxmlURL = getClass().getResource("/vues/VueCreeClient.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 			Node root = fxmlLoader.load();
 			Scene scene = new Scene((VBox) root, 600, 400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
 			stage3.setScene(scene);
 			stage3.setTitle("Gestion des Clients");
 			stage3.show();
@@ -157,11 +154,9 @@ public class ControleurMenu {
 	@FXML
 	public void gestionRevue() throws IOException {
 		if (chkBdd.isSelected()) {
-			chkLM.setDisable(true);
 			daoRevue = DAOFactory.getDAOFactory(Persistance.MYSQL).getRevueDAO();
 		} 
 		else if (chkLM.isSelected()) {
-			chkBdd.setDisable(true);
 			daoRevue = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE).getRevueDAO();
 		}
 		else {
@@ -172,19 +167,37 @@ public class ControleurMenu {
 			alert.showAndWait();
 		}		
 		
-		if (daoClient!=null) {
+		if (daoRevue!=null) {
 			Stage stage =(Stage) btnGestPerio.getScene().getWindow();
 			stage.close();
 			Stage stage4 = new Stage();
-			
-			URL fxmlURL = getClass().getResource("vues/VuesCreerRevue.fxml");
+			URL fxmlURL = getClass().getResource("/vues/VueCreerRevue.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 			Node root = fxmlLoader.load();
 			Scene scene = new Scene((VBox) root, 600, 400);
-			
 			stage4.setScene(scene);
 			stage4.setTitle("Gestion des Periodicites");
 			stage4.show();
 		}
 	}
+	
+	@FXML
+	public void checkSelection(ActionEvent event) {
+		if(chkBdd.isSelected()) {
+			chkLM.setDisable(true);
+		}
+		if(chkLM.isSelected()) {
+			chkBdd.setDisable(true);
+		}
+		if(!chkBdd.isSelected()) {
+			chkLM.setDisable(false);;
+		}
+		if(!chkLM.isSelected()){
+			chkBdd.setDisable(false);
+		}
+	}
+	
+	public void setMain(MainApp main) {
+        this.main = main;
+    }
 }

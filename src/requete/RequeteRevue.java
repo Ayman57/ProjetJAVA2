@@ -58,7 +58,7 @@ public class RequeteRevue {
 			req.setString(2, objet.getDescription());
 			req.setDouble(3, objet.getTarifNumero());
 			req.setString(4, objet.getVisuel());
-			req.setInt(5, objet.getIdPeriodicite());
+			//req.setInt(5, objet.getIdPeriodicite());
 			int nbLignes = req.executeUpdate();
 			
 			ResultSet res = req.getGeneratedKeys();

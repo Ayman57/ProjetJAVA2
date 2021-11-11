@@ -18,12 +18,12 @@ import dao.mysql.*;
 public class MYSQLRevueDAO implements RevueDAO{
 	private static MYSQLRevueDAO instance;
 
-	
+
 	@Override
 	public Revue getById(int id) throws Exception {
 		Revue  revue= null;	
-		 try {
-			   Connection laConnexion = Connexion.creeConnexion();
+		try {
+			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
 			PreparedStatement req =	laConnexion.prepareStatement(" select * from Revue where id_revue = ?");
 			req.setInt(1, id);
@@ -32,10 +32,10 @@ public class MYSQLRevueDAO implements RevueDAO{
 
 			if (res.next()) {
 				revue = new Revue(res.getInt(1),res.getString(2),res.getString(3), res.getDouble(4),res.getString(5), MYSQLPeriodiciteDAO.getInstance().getById(res.getInt(6)));
-				}
-			  }catch (SQLException sqle) {
-				System.out.println("Pb select" + sqle.getMessage());
-}
+			}
+		}catch (SQLException sqle) {
+			System.out.println("Pb select" + sqle.getMessage());
+		}
 
 		return revue;
 	}
@@ -47,13 +47,13 @@ public class MYSQLRevueDAO implements RevueDAO{
 		return instance;
 	}
 
-	
-	
+
+
 	@Override
 	public boolean create(Revue objet)throws Exception {
 		int nbLignes=0;
-		  try {
-			   Connection laConnexion = Connexion.creeConnexion();
+		try {
+			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
 			PreparedStatement req =	laConnexion.prepareStatement(" INSERT INTO Revue (titre, description, tarif_numero, visuel, id_periodicite) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, objet.getTitre());
@@ -61,25 +61,25 @@ public class MYSQLRevueDAO implements RevueDAO{
 			req.setDouble(3, objet.getTarifNumero());
 			req.setString(4, objet.getVisuel());
 			req.setInt(5,objet.getPeriodicite().getIdPeriodicite());
-			 nbLignes = req.executeUpdate();
+			nbLignes = req.executeUpdate();
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
-			int cle = res.getInt(1); 
+				int cle = res.getInt(1); 
 			}
-			 
 
-			
-			  }catch (SQLException sqle) {
-				System.out.println("Pb select" + sqle.getMessage());
-				  } 
-		  return nbLignes == 1;
+
+
+		}catch (SQLException sqle) {
+			System.out.println("Pb select" + sqle.getMessage());
+		} 
+		return nbLignes == 1;
 	}
 
 	@Override
 	public boolean update(Revue objet) throws Exception{
 		int nbLignes=0;
-		 try {
-			   Connection laConnexion = Connexion.creeConnexion();
+		try {
+			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
 			PreparedStatement req =	laConnexion.prepareStatement(" update Revue set  titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? WHERE id_revue = ?");
 			req.setString(1, objet.getTitre());
@@ -87,60 +87,62 @@ public class MYSQLRevueDAO implements RevueDAO{
 			req.setDouble(3, objet.getTarifNumero());
 			req.setString(4, objet.getVisuel());
 			req.setInt(5, objet.getPeriodicite().getIdPeriodicite());
-			 nbLignes = req.executeUpdate();
-			
+			req.setInt(6, objet.getIdRevue());
+			nbLignes = req.executeUpdate();
+
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
-			int cle = res.getInt(1); 
-			objet.setIdRevue(cle);
+				int cle = res.getInt(1); 
+				objet.setIdRevue(cle);
 			}
-			
-			  }catch (SQLException sqle) {
-				System.out.println("Pb select" + sqle.getMessage());
-				
-				  } 
+
+		}catch (SQLException sqle) {
+			System.out.println("Pb select" + sqle.getMessage());
+
+		} 
 		return nbLignes==1;
 	}
 
 	@Override
 	public boolean delete(Revue objet) throws Exception{
 		int nbLignes = 0;
-		 try {
-			   Connection laConnexion = Connexion.creeConnexion();
-			  PreparedStatement requete = laConnexion.prepareStatement("delete from  Revue where id_revue=?");
-					  requete.setInt(1, objet.getIdRevue());
-					   nbLignes = requete.executeUpdate();
-					
-		
-		  }catch (SQLException sqle) {
+		try {
+			Connection laConnexion = Connexion.creeConnexion();
+			PreparedStatement requete = laConnexion.prepareStatement("delete from  Revue where id_revue=?");
+			requete.setInt(1, objet.getIdRevue());
+			nbLignes = requete.executeUpdate();
+
+
+		}catch (SQLException sqle) {
 			System.out.println("Pb select" + sqle.getMessage());
-			  } 
+		} 
 		return nbLignes == 1;
 	}
 
 	@Override
 	public ArrayList<Revue> findAll() throws Exception{
 		ArrayList<Revue> listerev = new ArrayList<Revue>();
-		
-		
-		
+
 		try {
 			Connection laConnexion = Connexion.creeConnexion(); 
-			PreparedStatement req = laConnexion.prepareStatement("select * from Revue");
+			PreparedStatement req = laConnexion.prepareStatement("select id_revue, titre, description, tarif_numero, visuel, id_periodicite from Revue");
 			ResultSet res = req.executeQuery();
 			while (res.next()){
-				listerev.add(new Revue(res.getInt("id_revue"), res.getString("titre"), res.getString("description"), res.getInt("tarif_numero"), res.getString("visuel"), MYSQLPeriodiciteDAO.getInstance().getById(res.getInt(6))));			}
+				listerev.add(new Revue(res.getInt("id_revue"), res.getString("titre"), res.getString("description"), Integer.valueOf(res.getInt("tarif_numero")), res.getString("visuel"), MYSQLPeriodiciteDAO.getInstance().getById(res.getInt(6))));			
+			
+			}
+			Connexion.fermeture(laConnexion, req);
 		}catch (SQLException sqle) {
 			System.out.println("Pb dans select" + sqle.getMessage());
-			}
-		
+		}
+
 		return listerev ;
 	}
 
 
 
 
-	
+
 
 
 

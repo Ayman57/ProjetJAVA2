@@ -55,12 +55,12 @@ public class RequeteAbonnement {
 			   Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
 			PreparedStatement req = laConnexion.prepareStatement(" update Abonnement set  date_debut=?, date_fin=?, id_client=?, id_revue=?",Statement.RETURN_GENERATED_KEYS);
-			req.setDate(1, objet.getDateDebut());
+			/**req.setDate(1, objet.getDateDebut());
 			req.setDate(2, objet.getDateFin());
 			req.setInt(3, objet.getIdClient());
 			req.setInt(4, objet.getIdRevue());
 			int nbLignes = req.executeUpdate();
-			
+			**/
 			ResultSet res = req.getGeneratedKeys();
 			if (res.next()) {
 			int cle = res.getInt(1); 

@@ -11,21 +11,21 @@ public class ListeMemoireDAOFactory extends DAOFactory {
 @Override
 public AbonnementDAO getAbonnementDAO() {
 	// TODO Auto-generated method stub
-	return null;
+	return ListeMemoireAbonnementDAO.getInstance();
 }
 @Override
 public ClientDAO getClientDAO() {
 	// TODO Auto-generated method stub
-	return null;
+	return ListeMemoireClientDAO.getInstance();
 }
 @Override
 public RevueDAO getRevueDAO() {
 	// TODO Auto-generated method stub
-	return null;
+	return ListeMemoireRevueDAO.getInstance();
 }
 @Override
 public PeriodiciteDAO getPeriodiciteDAO() {
 	// TODO Auto-generated method stub
-	return null;
+	return ListeMemoirePeriodiciteDAO.getInstance();
 }
 }

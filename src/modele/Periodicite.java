@@ -9,8 +9,10 @@ public class Periodicite {
 	private String libelle;
 
 	public Periodicite(int idPeriodicite, String libelle) {
-		this.setIdPeriodicite(idPeriodicite);
-		this.setLibelle(libelle);
+		//this.setIdPeriodicite(idPeriodicite); 
+		//this.setLibelle(libelle);
+		this.idPeriodicite=idPeriodicite;
+		this.libelle=libelle;
 	}
 	
 	public Periodicite( String libelle) {

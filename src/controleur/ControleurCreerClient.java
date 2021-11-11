@@ -134,12 +134,12 @@ public class ControleurCreerClient {
 		PropertyValueFactory<Client,String> pays = new PropertyValueFactory<Client,String>("Pays");
 
 		this.colNom.setCellValueFactory(nom);
-		this.colPrenom.setCellValueFactory(coldescription);
-		this.colNoRue.setCellValueFactory(coltarif);
-		this.colVoie.setCellValueFactory(colperiodicite);
-		this.colCdPost.setCellValueFactory(colvisuel);
-		this.colVille.setCellValueFactory(colvisuel);
-		this.colPays.setCellValueFactory(colvisuel);
+		this.colPrenom.setCellValueFactory(prenom);
+		this.colNoRue.setCellValueFactory(rue);
+		this.colVoie.setCellValueFactory(voie);
+		this.colCdPost.setCellValueFactory(codepostale);
+		this.colVille.setCellValueFactory(ville);
+		this.colPays.setCellValueFactory(pays);
 
 		tblRevue.getItems().addAll(revue);
 	}

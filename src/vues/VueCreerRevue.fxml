@@ -149,7 +149,7 @@
             </FlowPane>
       </children>
     </AnchorPane>
-      <TableView fx:id="tblRevue" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="674.0">
+      <TableView fx:id="tblRevue" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getData" onMousePressed="#getData" prefHeight="142.0" prefWidth="674.0">
         <columns>
           <TableColumn fx:id="colTitre" prefWidth="166.39997518062592" text="Titre" />
           <TableColumn fx:id="colDescription" prefWidth="218.4000061035156" text="Description" />
@@ -160,12 +160,12 @@
       </TableView>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#modifierRevue" text="Modifier">
+            <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#modifierRevue" text="Modifier" visible="false">
                <FlowPane.margin>
                   <Insets right="10.0" />
                </FlowPane.margin>
             </Button>
-            <Button fx:id="btnSupprimer" alignment="CENTER" mnemonicParsing="false" onAction="#supprimerRevue" text="Supprimer" />
+            <Button fx:id="btnSupprimer" alignment="CENTER" mnemonicParsing="false" onAction="#supprimerRevue" text="Supprimer" visible="false" />
          </children>
       </FlowPane>
   </children>
